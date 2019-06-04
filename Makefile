@@ -1,4 +1,4 @@
-DOCS=Abyssum Players
+DOCS=Plane9 Players
 CHAPTERS=$(wildcard [a-z]*.tex)
 
 .PHONY: all clean
