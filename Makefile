@@ -8,7 +8,7 @@ default: all
 all: $(patsubst %,%.pdf,$(DOCS))
 
 %.pdf : %.tex $(CHAPTERS)
-	latexmk -pdf $<
+	latexmk -latexoption=-interaction=nonstopmode -latexoption=-halt-on-error -pdf $<
 
 clean:
 	latexmk -c
