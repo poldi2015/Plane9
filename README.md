@@ -8,8 +8,8 @@
 
 Der Rollenspielplot ist in zwei PDFs enthalten:
 
-* [Der Plot für den Spielleiter](https://github.com/poldi2015/Plane9/releases/latest/Plane9.pdf)
-* [Der Spieler Referenz für die Mitspieler](https://github.com/poldi2015/Plane9/releases/latest/Players.pdf)
+* [Der Plot für den Spielleiter](https://github.com/poldi2015/Plane9/releases/latest/download/Plane9.pdf)
+* [Der Spieler Referenz für die Mitspieler](https://github.com/poldi2015/Plane9/releases/latest/download/Players.pdf)
 
 Als Rollenspielsystem bietet sich *Shadowrun* am ehesten an. In einem kommenden Release werde ich Werte für NSCs, Ausrüstung etc. ergänzen.
 
