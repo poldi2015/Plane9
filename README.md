@@ -1,5 +1,7 @@
 ![Logo](Button_small.png)
 
+[![Build Status](https://travis-ci.org/poldi2015/Plane9.svg?branch=master)](https://travis-ci.org/poldi2015/Plane9)
+
 # Plane 9 from Outer Space
 
 **Plane 9 from Outer Space** ist eine Rollenspieladaption der Romanvorlage *[c23 - Band 3, in abyssum](https://www.century23.de/index.php/buecher)* von *[Ralph  Edendorfer](https://www.century23.de/index.php/autor)*. Die Geschichte spielt im 23. Jahrhundert im jovianischen System, also rund um den Planeten Jupiter. Vor ca. 2 Jahren wurde das jovianische System durch die Mutantennation des Protektorats für die Helium-3 Gewinnung erschlossen. Seit einigen Wochen kommt es immer wieder zu gefährlichen Zwischenfällen...
