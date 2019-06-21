@@ -1,6 +1,18 @@
 sudo: required
 dist: trusty
 before_install:
-- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends latexmk texlive-fonts-recommended  texlive-latex-recommended texlive-latex-extra texlive-lang-german
+- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends latexmk
+  texlive-fonts-recommended  texlive-latex-recommended texlive-latex-extra texlive-lang-german
 script:
 - make
+deploy:
+  provider: releases
+  api_key:
+    secure: u9M3Hb+9ilq6j6EO66pIGi9yqYczAhnovpsN3kqBVKppzJWgGfWtdLnbnoDotbPCcvy6bfgOzT8KIHBJDlsaod3fVtVsawQ3HvqbBosPOaL+aYhNmI5g5VNK+q4mhVrKIVTK5styMKg3Nr7585rbzZz2PbtFYblvtlNbP1MzZsJ2ebszkBkYxsWMrREV5qvjYIpjoondJvSENdmW0wjhlIEnRXn6crbsfUgkhTCgveub0h/TJZNIVMSTDtBsVgw9xoDqrSoc38oOfwoAu7mgf6icFaJhNi3eGRQ2zxLKLzk6KagtbfJHyYH5n4d4xUfoxyW/p0vW2aLMEmsBSYlE7U6b2ACpUsKiFa5w8hnWT3lWyF34amgeupS94R6j46kBX5sV0FTC8r7CVqUKEUErybp4giHAqpC2j2uBHe7Nxk3YGYWkar7YfevP5v+VA/AvHC6/6OhbEer3eHi1iJTN4BXSjK2eQEXR79S9mnXkl4oenK1Y0h9pu1PkRw/GrSH/wQyoO0y+uLNrVYE5Vx2moyyK0FcpO+o50eDY9BtpiRQrU58O3PLgex7c3ns+i1CLW5af5R4uVumxVbYSwfi1Kb/F/vUwpRAxijkLavs9KBqaw7vdtyTwOND3lf5v7RKbaHyzMJZrzKYqKhx6ZhY8VUtKLrKLTW9/KHXGIFl3gjs=
+  file:
+    - Plane9.pdf
+    - Players.pdf
+  skip_cleanup: true
+  on:
+    tags:true
+    repo: poldi2015/Plane9
