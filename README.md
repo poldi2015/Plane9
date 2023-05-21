@@ -1,6 +1,7 @@
+[![Build Status](https://travis-ci.org/poldi2015/Plane9.svg?branch=master)](https://travis-ci.org/poldi2015/Plane9) [![Plane9.pdf latest release](https://img.shields.io/github/release/poldi2015/Plane9.svg?label=Plane9.pdf)](https://github.com/poldi2015/Plane9/releases/latest/download/Plane9.pdf) [![Players.pdf latest release](https://img.shields.io/github/release/poldi2015/Plane9.svg?label=Players.pdf)](https://github.com/poldi2015/Plane9/releases/latest/download/Players.pdf)
+
 ![Logo](images/logo_readme.png)
 
-[![Build Status](https://travis-ci.org/poldi2015/Plane9.svg?branch=master)](https://travis-ci.org/poldi2015/Plane9) [![Plane9.pdf latest release](https://img.shields.io/github/release/poldi2015/Plane9.svg?label=Plane9.pdf)](https://github.com/poldi2015/Plane9/releases/latest/download/Plane9.pdf) [![Players.pdf latest release](https://img.shields.io/github/release/poldi2015/Plane9.svg?label=Players.pdf)](https://github.com/poldi2015/Plane9/releases/latest/download/Players.pdf)
 
 # Plane 9 from Outer Space
 
