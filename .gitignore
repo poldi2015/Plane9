@@ -6,3 +6,4 @@
 *_latexmk
 *.out
 _material
+*.synctex.gz
