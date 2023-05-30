@@ -9,12 +9,21 @@
 
 ## Der Plot
 
-Der Rollenspielplot ist in zwei PDFs enthalten:
+Der Rollenspielplot, ein Science Fiction Thriller auf rund 60 Seiten, ist auf vier Spieler, die auf über 30 Personen in 20 Szenen 
+bei einer Spielzeit von um die 40 Stunden treffen, augelegt. Bei der Geschichte handelt es sich um sog. 
+[Hard Science Fiction](https://en.wikipedia.org/wiki/Hard_science_fiction). Mit Magie und Außerirdischen, 
+Überlichtgeschwindigkeit und Beamen kann also nicht gerechnet werden. Dafür um so mehr mit harter Detektivarbeit, undurschaubaren
+politischen Verstrickungen, unerwarteten Freunden, vielen spannenden Dialogen und einer guten Portion Action.
+
+Der Unterlagen sind auf zwei PDFs aufgeteilt::
 
 * [Der Plot für den Spielleiter](https://github.com/poldi2015/Plane9/releases/latest/download/Plane9.pdf)
 * [Der Spieler Referenz für die Mitspieler](https://github.com/poldi2015/Plane9/releases/latest/download/Players.pdf)
 
-Als Rollenspielsystem bietet sich *Shadowrun* am ehesten an. In einem kommenden Release werde ich Werte für NSCs, Ausrüstung etc. ergänzen.
+Zusätzlich dazu gibt es auch ein eigenes sehr einfaches Rollenspielsystem mit eigenem Charakterblatt für Spieler die
+sich sofort in die Geschichte vertiefen wollen anstatt an Charaketerwerten zu feilen. Wer trotzdem Freude an einem
+ausgetüftelten Regelwerk hat nimmt am besten das *Shadowrun* oder das *Cyberpunkt* System in die Hand. 
+Cyberware und Matrixkampf lassen sich damit gut übertragen.
 
 ## Die PDFs bauen
 
