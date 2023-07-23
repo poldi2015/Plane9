@@ -15,7 +15,7 @@ bei einer Spielzeit von um die 40 Stunden treffen, augelegt. Bei der Geschichte 
 Überlichtgeschwindigkeit und Beamen kann also nicht gerechnet werden. Dafür um so mehr mit harter Detektivarbeit, undurschaubaren
 politischen Verstrickungen, unerwarteten Freunden, vielen spannenden Dialogen und einer guten Portion Action.
 
-Der Unterlagen sind auf zwei PDFs aufgeteilt::
+Der Unterlagen sind auf zwei PDFs aufgeteilt:
 
 * [Der Plot für den Spielleiter](https://github.com/poldi2015/Plane9/releases/latest/download/Plane9.pdf)
 * [Der Spieler Referenz für die Mitspieler](https://github.com/poldi2015/Plane9/releases/latest/download/Players.pdf)
