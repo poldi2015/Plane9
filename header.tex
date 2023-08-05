@@ -5,11 +5,34 @@
 \usepackage{eurosym}
 \usepackage{ifthen}
 \usepackage{hyperref}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{xpinyin}
 \usepackage[toc,page]{appendix}
 
 \newcommand{\introchaptername}[1]{\def\@introchaptername{#1}}
-\newenvironment{remarks}{\emph{\textbf{Hinweise}}\par{}\begin{itshape}}{\end{itshape}}
+\newenvironment{remarks}{\textbf{\emph{Hinweise}}\par{}\begin{textit}}{\end{textit}}
+\newcommand{\m}[1]{\textcolor{highlight}{\textbf{#1}}}
 
+\newcommand{\showtitlepage}[1]{    
+    %
+    \title{\vspace*{2.5cm}\Huge{}Plane 9 in Outer Space\\\smallskip\large\it{}#1}
+    \author{Bernd Haberstumpf}
+    \date{Mai 2019}    
+    %
+    \maketitle    
+    \vspace{2cm}
+    \begin{center}\includegraphics[scale=0.4]{images/logo.png}\end{center}    
+    \thispagestyle{empty}
+    \newpage
+    \setcounter{page}{1}
+    %
+    \introchaptername{Einleitung}
+}
+
+%\graphicspath{images/}
 \pagestyle{plain}
 \parskip1.0ex
 \parindent0.0ex
+\definecolor{highlight}{rgb}{1,.6,.1}
