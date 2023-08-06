@@ -48,7 +48,7 @@ jobs:
 
       - name: Release Plane9.pdf
         id: upload-release-asset-plane9-pdf 
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v1.1.3
         if: github.ref_type == 'tag'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -60,7 +60,7 @@ jobs:
 
       - name: Release Players.pdf
         id: upload-release-asset-players-pdf 
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v1.1.3
         if: github.ref_type == 'tag'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
