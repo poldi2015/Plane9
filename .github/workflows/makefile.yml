@@ -20,13 +20,13 @@ jobs:
           name: Build pdfs
           run: |
             apk add make
-            apt add latexmk
-            apt add texlive-latex-recommended
-            apt add texlive-fonts-recommended
-            apt add texlive-latex-extra
-            apt add texlive-lang-german
-            apt add texlive-lang-chinese
-            apt add texlive-lang-cjk
+            apk add latexmk
+            apk add texlive-latex-recommended
+            apk add texlive-fonts-recommended
+            apk add texlive-latex-extra
+            apk add texlive-lang-german
+            apk add texlive-lang-chinese
+            apk add texlive-lang-cjk
             make
 
       - uses: actions/upload-artifact@v3
