@@ -12,9 +12,28 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-      
-      - uses: xu-cheng/texlive-action/full@v1
         with:
+          name: Checkout
+      
+      - uses: xu-cheng/texlive-action/small@v1        
+        with:
+          name: Build pdfs
           run: |
             apk add make
+            apt add latexmk
+            apt add texlive-latex-recommended
+            apt add texlive-fonts-recommended
+            apt add texlive-latex-extra
+            apt add texlive-lang-german
+            apt add texlive-lang-chinese
+            apt add texlive-lang-cjk
             make
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Release pdfs and logs
+          path: |
+            Plane9.pdf
+            Players.pdf
+            Plane9.log
+            Players.log
