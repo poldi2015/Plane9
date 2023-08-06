@@ -32,35 +32,34 @@ jobs:
         run: |
           make
 
-#      - uses: xu-cheng/texlive-action/small@v1        
-#        with:
-#          run: |
-#            apk add make
-#            make
-
-      - name: Publish artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          path: |
-            Plane9.pdf
-            Players.pdf
-            Plane9.log
-            Players.log
-
-      - name: Create Release
+      - name: Create Release ${{ github.ref_name }}
         id: create_release
         uses: actions/create-release@v1
+        if: github.ref_type == 'tag'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: true
+          tag_name: ${{ github.ref_name }}
+          release_name: ${{ github.ref_name }}
+          draft: false
           prerelease: false
 
-      - name: Upload Release Asset
+      - name: Release Plane9.pdf
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
+        if: github.ref_type == 'tag'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./Plane9.pdf
+          asset_name: Plane9.pdf
+          asset_content_type: application/pdf
+
+      - name: Release Players.pdf
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        if: github.ref_type == 'tag'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
