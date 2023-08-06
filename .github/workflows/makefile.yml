@@ -27,17 +27,18 @@ jobs:
           sudo apt-get install -y texlive-lang-chinese 
           sudo apt-get install -y texlive-lang-cjk
 
-        - name: Build document
-          run: |
-            make
-      
+      - name: Build document
+        run: |
+          make
+
 #      - uses: xu-cheng/texlive-action/small@v1        
 #        with:
 #          run: |
 #            apk add make
 #            make
 
-      - uses: actions/upload-artifact@v3
+      - name: Publish artifacts
+        uses: actions/upload-artifact@v3
         with:
           path: |
             Plane9.pdf
