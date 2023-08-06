@@ -12,15 +12,11 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-        with:
-          name: Checkout
       
       - uses: xu-cheng/texlive-action/small@v1        
         with:
-          name: Build pdfs
           run: |
             apk add make
-            apk add latex-make
             apk add latex-mk
             apk add texlive-latex-recommended
             apk add texlive-fonts-recommended
