@@ -45,7 +45,7 @@ jobs:
           prerelease: false
 
       - name: Release Plane9.pdf
-        id: upload-release-asset 
+        id: upload-release-asset-plane9-pdf 
         uses: actions/upload-release-asset@v1
         if: github.ref_type == 'tag'
         env:
@@ -57,7 +57,7 @@ jobs:
           asset_content_type: application/pdf
 
       - name: Release Players.pdf
-        id: upload-release-asset 
+        id: upload-release-asset-players-pdf 
         uses: actions/upload-release-asset@v1
         if: github.ref_type == 'tag'
         env:
