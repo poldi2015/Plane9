@@ -17,7 +17,6 @@ jobs:
         with:
           run: |
             apk add make
-            apk add latex-mk
             apk add texlive-latex-recommended
             apk add texlive-fonts-recommended
             apk add texlive-latex-extra
