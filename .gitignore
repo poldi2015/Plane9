@@ -1,4 +1,5 @@
 *.pdf
+!resources/*.pdf
 *.log
 *.aux
 *.fls
