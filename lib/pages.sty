@@ -1,0 +1,110 @@
+%% Copyright 2019 Bernd Haberstumpf
+%% License: CC BY-NC
+
+%
+% Abstract
+%
+
+\newenvironment{abstract}{}{}
+\usepackage{abstract}
+
+
+%
+% Titlepage
+%
+
+% Full featured titlepage for book printing
+\newkeycommand\booktitle[
+    image=,
+    logo=,
+    title=Title,
+    subtitle=subtitle,
+    annotations=annotations,
+]{
+    \thispagestyle{empty}
+    \newgeometry{left=5mm,right=5mm,rmargin=1mm}
+    %
+    \AddThispageHook{        
+        \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\commandkey{image}}};
+    }
+    \begin{center}
+        \vspace*{35mm}        
+        \expaniva\fontsize{35pt}{41pt}\fontseries{b}\selectfont
+        \fillstroke{[1]}{[0]}{1.5}{\MakeUppercase{\commandkey{title}}}\\*        
+        \vspace{5mm}        
+        \normalfont\normalsize\includegraphics[width=.5\paperwidth]{lib/images/title-separator}\\*
+        \vspace{5mm}
+        \expaniva\fontsize{20pt}{20pt}\fontseries{b}\selectfont
+        \fillstroke{[1]}{[0]}{0.5}{\commandkey{subtitle}}\\*
+        \vfill
+        \expaniva\fontsize{20pt}{20pt}\fontseries{b}\selectfont
+        \fillstroke{[1]}{[0]}{1}{\commandkey{annotations}}
+    \end{center}
+    %
+    \setcounter{page}{1}
+    \clearpage
+    \restoregeometry
+}
+
+% Simplified titlepage for plain text layout
+\newkeycommand\plaintitle[
+    logo=logo.png,
+    title=Title,
+    subtitle=Subtitle,
+    author=Author,
+]{
+    \title{%
+        \vspace*{2.5cm}%
+        \Huge{}\commandkey{title}\\%
+        \smallskip%
+        \large\it{}\commandkey{subtitle}%
+        \vspace{1cm}%
+        \begin{center}\includegraphics[scale=0.4]{\commandkey{logo}}\end{center}%
+    }
+    \author{\commandkey{author}}
+    \date{Mai 2019}
+    %
+    \maketitle
+    %
+    \setcounter{page}{1}
+}
+
+%\newcommand{\plaintitle}[1]{
+%
+%    \title{\vspace*{2.5cm}\Huge{}Plane 9 in Outer Space\\\smallskip\large\it{}#1\vspace{1cm}\begin{center}\includegraphics[scale=0.4]{images/logo.png}\end{center}    }
+%    \author{Bernd Haberstumpf}
+%    \date{Mai 2019}
+    %
+%    \maketitle
+    %
+%    \setcounter{page}{1}
+%}
+
+
+%
+% Tableofcontents
+%
+
+\usepackage{tocloft}
+\tocloftpagestyle{empty}
+
+
+%
+% Misc
+% 
+
+% Either hilariously, or infuriatingly, the \ifcommandkey
+% implementation is buggy. Here is a re-implementation
+% from tex.stackexchange.
+\begingroup
+\makeatletter
+\catcode`\/=8 %
+\@firstofone
+{
+\endgroup
+\renewcommand{\ifcommandkey}[1]{%
+\csname @\expandafter \expandafter \expandafter
+\expandafter \expandafter \expandafter  \expandafter
+\kcmd@nbk \commandkey {#1}//{first}{second}//oftwo\endcsname
+}
+}
