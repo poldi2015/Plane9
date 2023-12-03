@@ -1,8 +1,23 @@
-\ProvidesPackage{lib/layout}
+%% Copyright 2019 Bernd Haberstumpf
+%% License: CC BY-NC
 
 %
-% Abstract
+% Document layout
 %
 
-\newenvironment{abstract}{}{}
-\usepackage{abstract}
+\newcommand{\preamble}{
+    \frontmatter
+    \pagestyle{empty}
+}
+
+\newcommand{\content}{
+    \mainmatter
+    \pagestyle{plain}
+}
+
+%
+% Pagelayout
+%
+
+\parskip1.0ex
+\parindent0.0ex

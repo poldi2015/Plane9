@@ -1,5 +1,6 @@
 DOCS=Plane9 Players
 CHAPTERS=$(wildcard [a-z-]*.tex) \
+		 $(wildcard content/[a-z-]*.tex) \
 		 $(wildcard lib/[a-z-]*.sty)
 
 .PHONY: all clean

@@ -1,5 +1,6 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
+
 \usepackage{german}
 \usepackage{t1enc}
 \usepackage{eurosym}
@@ -11,26 +12,14 @@
 \usepackage{xpinyin}
 \usepackage[toc,page]{appendix}
 
-\usepackage{lib/layout}
+\usepackage{lib/book}
 
+% Allow to rename intro  chapter for Players Guide
 \newcommand{\introchaptername}[1]{\def\@introchaptername{#1}}
+\introchaptername{Einleitung}
+
 \newenvironment{remarks}{\textbf{\emph{Hinweise}}\par{}\begin{textit}}{\end{textit}}
 \newcommand{\m}[1]{\textcolor{highlight}{\textbf{#1}}}
 
-\newcommand{\showtitlepage}[1]{    
-    %
-    \title{\vspace*{2.5cm}\Huge{}Plane 9 in Outer Space\\\smallskip\large\it{}#1\vspace{1cm}\begin{center}\includegraphics[scale=0.4]{images/logo.png}\end{center}    }
-    \author{Bernd Haberstumpf}
-    \date{Mai 2019}    
-    %
-    \maketitle
-    %
-    \setcounter{page}{1}    
-    \introchaptername{Einleitung}
-}
-
 %\graphicspath{images/}
-\pagestyle{plain}
-\parskip1.0ex
-\parindent0.0ex
 \definecolor{highlight}{rgb}{1,.6,.1}

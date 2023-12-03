@@ -1,29 +1,36 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
-\documentclass[helvetica,a4paper,11pt,german,openany]{book}
+\documentclass[a4paper,11pt,german,openany]{book}
 
-\input{lib/header.tex}
+\input{header.tex}
 
 \begin{document}
 
-%\frontmatter
+\preamble
 
-\showtitlepage{Rollenspielplot}
+%\showtitlepage[
+%    image = images/titlepage-bg,
+%    logo = images/logo,
+%    title = Operation P9,
+%    subtitle = Kampagne,
+%    annotations = Bernd Haberstumpf
+%]
+
+\showplaintitle{Rollenspielplot}
 \tableofcontents
-\input{abstract.tex}
+\input{content/abstract.tex}
 
-%\mainmatter
+\content
 
-
-\input{introduction.tex}
-\input{background.tex}
-\input{scenes.tex}
+\input{content/introduction.tex}
+\input{content/background.tex}
+\input{content/scenes.tex}
 
 \newpage
 \begin{appendices}
-    \input{nsc.tex}
-    \input{locations.tex}
-	\input{appendix.tex}
+    \input{content/nsc.tex}
+    \input{content/locations.tex}
+	\input{content/appendix.tex}
 \end{appendices}
 
 

@@ -88,4 +88,4 @@ $max_repeat=3;
 set_tex_cmds("--shell-escape --synctex=1 %O %S");
 
 # Additional path to find .sty library
-ensure_path('TEXINPUTS', './preamble', './scenes//', './appendix//', './lib//')
+ensure_path('TEXINPUTS', './content//', './lib//')
