@@ -6,5 +6,7 @@
 *.toc
 *_latexmk
 *.out
+*.xdv
 _material
 *.synctex.gz
+resources
