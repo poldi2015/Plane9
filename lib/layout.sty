@@ -1,7 +1,8 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
 
-\RequirePackage{fancyhdr}
+\RequirePackage{fancyhdr}               % Header/Footer
+\RequirePackage[newparttoc]{titlesec}	% Chapter & Section formatting
 
 %
 % Document layout
@@ -27,14 +28,14 @@
 
 \geometry{a4paper,
     includeheadfoot,
-    top=10mm,
+    top=5mm,
     headheight=30mm,
     headsep=10mm,
     footskip=30mm,
-    bottom=10mm,
-    left=25mm,
-    right=30mm,
-    rmargin=30mm
+    bottom=7mm,
+    left=20mm,
+    right=25mm,
+    rmargin=325mm
 }
 
 
@@ -75,32 +76,41 @@
             \node[inner sep=0pt,anchor=south,nearly opaque] at (current page.south)
             {\includegraphics[width=\paperwidth,height=21pt]{lib/images/footer-page-right}};
             \node[xshift=-20pt,yshift=12pt] at (current page.south east) {\@fontPgNumFoot\textcolor{colFoot}{\thepage}};
-            \node[anchor=south east,xshift=-\marginparwidth-\marginparpush+30pt,yshift=2pt] at (current page.south east) {\@fontFoot{\textcolor{colFoot}{
-                \ifthenelse{\isempty{\@sectionname}}{// \nouppercase\leftmark //}{// \nouppercase\leftmark{}.\@sectionname //}}}
+            \node[anchor=south east,xshift=-\marginparwidth-\marginparpush+30pt,yshift=2pt] at (current page.south east) {\@fontFoot{\textcolor{colFoot}{ %
+                // \nouppercase\leftmark%
+                \ifthenelse{\isempty{\@sectionname}}{}{.\@sectionname}%
+                // }}
             };
         \end{tikzpicture}
     }
-}    
-
+}
 
 %
-% Table of contents
+% Chapter and section layout
 % 
 
+% Chapter
+\titleformat{\chapter}%block
+{\vspace{-30pt}\color{colChapter}\@fontChapter}             % Chapter name
+{}                                                          % Chapter number
+{0cm}                                                       % Title sparation
+{\Huge}                                                     % Pre Chapter name
+[{\titleline{\color{colTitleRuler}\titlerule[2pt]}}]        % Ruler
 
-% Unnumbered sections
-\setcounter{secnumdepth}{0}
 
-% Hide chapter numbers
-\newcommand{\newchapter}[2][]{%
-    \phantomsection%
-    \chapter*{#2}%
-    \ifthenelse{\isempty{#1}}{\addcontentsline{toc}{chapter}{#2}}{\addcontentsline{toc}{chapter}{#1}}%
-    \renewcommand{\leftmark}{#2}
-}
+% Section
+\titleformat{\section}%[block]
+{\color{colSection}\@fontSection\huge}
+{}
+{0.5em}
+{}
+[{\titleline{\color{colTitleRuler}\titlerule[0.5pt]}}]
 
-\def\@sectionname{}
-\newcommand{\newsection}[1]{%
-    \section{#1}%
-    \def\@sectionname{#1}
-}
+
+% Subsection
+\titleformat{\subsection}%[block]
+{\color{colSubsection}\@fontSubsection\LARGE}
+{}
+{0.5em}
+{}
+[{\titleline{\color{colTitleRuler}\titlerule[0.5pt]}}]

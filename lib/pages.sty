@@ -7,7 +7,7 @@
 
 \newenvironment{abstract}{}{}
 \usepackage{abstract}
-
+    
 
 %
 % Titlepage
@@ -77,6 +77,27 @@
 \usepackage{tocloft}                % Pagestyle, separator...
 \tocloftpagestyle{empty}            % Change page style
 \RequirePackage[toc]{multitoc}      % Multicolumn ToC
+
+% Unnumbered sections
+\setcounter{secnumdepth}{0}
+
+% Hide chapter numbers
+\newcommand{\newchapter}[2][]{%
+    \phantomsection%
+    \chapter*{#2}%
+    \ifthenelse{\isempty{#1}}{\addcontentsline{toc}{chapter}{#2}}{\addcontentsline{toc}{chapter}{#1}}%
+    \renewcommand{\leftmark}{#2}    % Change the chapter name in the footer
+}
+
+\def\@sectionname{} % Define variable for section name for the footer
+\newcommand{\newsection}[1]{%
+    \section{#1}%
+    \def\@sectionname{#1}           % change the section name on the footer
+}
+
+\newcommand{\newsubsection}[1]{%
+    \subsection{#1}
+}
 
 
 %
