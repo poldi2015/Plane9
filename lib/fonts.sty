@@ -1,7 +1,22 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
 
+\RequirePackage[T1]{fontenc}
 \usepackage{fontspec}
+
+\renewcommand{\sfdefault}{lmss}
+
+%
+% Font mappings
+%
+
+\newcommand{\@fontFoot}{\normalfont\scshape}
+\newcommand{\@fontPgNumFoot}{\normalfont}
+
+
+%
+% Font definitions
+%
 
 \newfontfamily\expaniva[
     Path = lib/fonts/,
@@ -11,6 +26,11 @@
     ItalicFont = *-italic,
     BoldItalicFont = *-bold-italic,    
 ]{Expansiva}
+
+
+%
+% Misc
+%
 
 % StrokeColor, FillColor, StrokeWidth, Text
 \newcommand*{\fillstroke}[4]{%

@@ -1,6 +1,8 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
 
+\RequirePackage{fancyhdr}
+
 %
 % Document layout
 %
@@ -15,8 +17,9 @@
     \pagestyle{plain}
 }
 
+
 %
-% Pagelayout
+% Page layout
 %
 
 \parskip1.0ex
@@ -32,4 +35,72 @@
     left=25mm,
     right=30mm,
     rmargin=30mm
+}
+
+
+%
+% Header/Footer
+%
+
+\renewcommand{\headrulewidth}{0.0pt} %no rule for header
+\renewcommand{\footrulewidth}{0.0pt} %no rule for footer
+
+\renewcommand{\chaptername}{} % Remove the header name prefix
+
+\fancypagestyle{plain}{
+    \fancyhf{} % clear all headers and footers
+    
+    \fancyhead{
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[inner sep=0pt,anchor=north west] at (current page.north west)
+            {\includegraphics[width=\paperwidth]{lib/images/header-page}};
+        \end{tikzpicture}
+        \newgeometry{top=5cm}
+    }
+
+    \fancyfoot[LE]{
+       \begin{tikzpicture}[remember picture,overlay]
+            \node[xscale=-1,inner sep=0pt,anchor=south,nearly opaque] at (current page.south) {\includegraphics[width=\paperwidth,height=21pt]{lib/images/footer-page-left}};
+            \node[xshift=20pt,yshift=12pt] at (current page.south west) {\@fontPgNumFoot\textcolor{colFoot}{\thepage}};
+            \node[anchor=south west,xshift=\marginparwidth+\marginparpush-30pt,yshift=2pt] at (current page.south west) {\@fontFoot{\textcolor{colFoot}{ %
+                // \nouppercase\leftmark%
+                \ifthenelse{\isempty{\@sectionname}}{}{.\@sectionname}%
+                // }}
+            };
+        \end{tikzpicture}
+    }
+
+    \fancyfoot[RO]{
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[inner sep=0pt,anchor=south,nearly opaque] at (current page.south)
+            {\includegraphics[width=\paperwidth,height=21pt]{lib/images/footer-page-right}};
+            \node[xshift=-20pt,yshift=12pt] at (current page.south east) {\@fontPgNumFoot\textcolor{colFoot}{\thepage}};
+            \node[anchor=south east,xshift=-\marginparwidth-\marginparpush+30pt,yshift=2pt] at (current page.south east) {\@fontFoot{\textcolor{colFoot}{
+                \ifthenelse{\isempty{\@sectionname}}{// \nouppercase\leftmark //}{// \nouppercase\leftmark{}.\@sectionname //}}}
+            };
+        \end{tikzpicture}
+    }
+}    
+
+
+%
+% Table of contents
+% 
+
+
+% Unnumbered sections
+\setcounter{secnumdepth}{0}
+
+% Hide chapter numbers
+\newcommand{\newchapter}[2][]{%
+    \phantomsection%
+    \chapter*{#2}%
+    \ifthenelse{\isempty{#1}}{\addcontentsline{toc}{chapter}{#2}}{\addcontentsline{toc}{chapter}{#1}}%
+    \renewcommand{\leftmark}{#2}
+}
+
+\def\@sectionname{}
+\newcommand{\newsection}[1]{%
+    \section{#1}%
+    \def\@sectionname{#1}
 }
