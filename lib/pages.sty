@@ -74,12 +74,20 @@
 % Table of contents
 %
 
-\usepackage{tocloft}                % Pagestyle, separator...
+\usepackage{tocloft}                % Pagestyle, separator... [titles] uses the chapter format for the title
 \tocloftpagestyle{empty}            % Change page style
 \RequirePackage[toc]{multitoc}      % Multicolumn ToC
 
 % Unnumbered sections
-\setcounter{secnumdepth}{0}
+\setcounter{secnumdepth}{1}
+
+% Formatting of the toc title like a chapter
+\renewcommand{\cfttoctitlefont}{\vspace{-30pt}\color{colChapter}\@fontChapter}  % execute directly before the title
+\renewcommand{\cftaftertoctitle}{\\\color{colTitleRuler}\titlerule[2pt]}        % executed directly after the title
+
+% Remove section and chapter numbers from the ToC (numberline is the macro that generates the number in the ToC entry)
+\renewcommand{\numberline}[1]{}
+
 
 % Hide chapter numbers
 \newcommand{\newchapter}[2][]{%
@@ -90,9 +98,9 @@
 }
 
 \def\@sectionname{} % Define variable for section name for the footer
-\newcommand{\newsection}[1]{%
-    \section{#1}%
-    \def\@sectionname{#1}           % change the section name on the footer
+\newcommand{\newsection}[2][]{%
+    \section{#2}%     
+    \def\@sectionname{#2}           % change the section name on the footer
 }
 
 \newcommand{\newsubsection}[1]{%
