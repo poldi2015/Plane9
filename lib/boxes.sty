@@ -3,26 +3,33 @@
 
 \RequirePackage{environ}
 \RequirePackage[many]{tcolorbox}
+\RequirePackage{calc}
+\RequirePackage[export]{adjustbox}
 
-\pgfdeclareimage[width=\columnwidth-5mm,height=4mm]{longpictureframe}{./lib/images/box-top.png}
+
+%
+% Remarkbox
+%
+
+\pgfdeclareimage[width=\columnwidth-5mm,height=4mm]{@boxtopframe}{./lib/images/box-top.png}
 
 \newcommand{\@remarks}[1]{
     \begin{center}
         \begin{tcolorbox}[
-            enhanced,
-            colback=boxBg,
-            coltext=boxText,
-            left=2mm,
-            right=2mm,
-            bottom=4mm, top=3mm,
+            enhanced,        
             width = \columnwidth-5mm,
-            arc=2mm,
-            outer arc=0mm,
-            colframe=storyblack,
-            attach boxed title to bottom right={xshift=-10mm,yshift=5mm},
-            interior code app={\node[anchor=center]  at ($(frame.north)+(0mm,1mm)$) {\pgfuseimage{longpictureframe}};},
+            left=2mm,right=2mm,
+            bottom=4mm, top=3mm,                        
+            arc=2mm, outer arc=0mm,            
+            colframe=remarkboxframe,
+            colback=remarkboxBg,
+            coltext=remarkboxText,
+            fuzzy shadow={2pt}{-2pt}{-0.5pt}{0.4mm}{black!60!white},
+            interior code app={\node[anchor=center]  at ($(frame.north)+(0mm,1mm)$) {\pgfuseimage{@boxtopframe}};},
         ]        
-        \texttt{#1}
+        {\@fontRemark{}\setlength{\parskip}{10pt}%
+        #1%
+        }
         \end{tcolorbox}
     \end{center}
 }
@@ -32,3 +39,69 @@
 }
 
 
+%
+% Imagebox
+%
+
+% Used by internally to render an image with a colorbox
+% #1 - path to the image
+\newlength{\@imageboxleft}      % spacing of image box from the left
+\newlength{\@imageboxright}     % spacing of image box from the right
+\pgfdeclareimage[width=30.127mm,height=50.268mm]{@imageboxframetopleft}{./lib/images/imagebox-corner-top-left.png}
+\pgfdeclareimage[width=30.127mm,height=50.268mm]{@imageboxframetoprigth}{./lib/images/imagebox-corner-top-right.png}
+\pgfdeclareimage[width=30.127mm,height=50.268mm]{@imageboxframebottomleft}{./lib/images/imagebox-corner-bottom-left.png}
+\pgfdeclareimage[width=30.127mm,height=50.268mm]{@imageboxframebottomright}{./lib/images/imagebox-corner-bottom-right.png}
+
+\newcommand{\@imagebox}[3]{
+    \ifthenelse{\equal{#1}{l}}%
+    {\setlength{\@imageboxleft}{0mm}\setlength{\@imageboxright}{10mm}}%
+    {\setlength{\@imageboxleft}{10mm}\setlength{\@imageboxright}{0mm}}%
+    \vspace{5mm}
+    \begin{tcolorbox}[
+            enhanced,
+            before skip=5cm,
+            box align=top, 
+            boxrule=3pt,
+            width = \textwidth-10mm,
+            enlarge left by = \@imageboxleft, enlarge right by = \@imageboxright,
+            left=0.5mm, right=0.5mm,
+            bottom=0.5mm, top=0.5mm,
+            arc=1.5mm, outer arc=1mm,
+            colback=imageboxBg,
+            colframe=imageboxframe,            
+            overlay app={\node[anchor=north west]  at ($(frame.north west)+(-3mm,3mm)$) {\pgfuseimage{@imageboxframetopleft}};},
+            overlay app={\node[anchor=north east]  at ($(frame.north east)+(3mm,3mm)$) {\pgfuseimage{@imageboxframetoprigth}};},
+            overlay app={\node[anchor=south west]  at ($(frame.south west)+(-3mm,-3mm)$) {\pgfuseimage{@imageboxframebottomleft}};},
+            overlay app={\node[anchor=south east]  at ($(frame.south east)+(+3mm,-3mm)$) {\pgfuseimage{@imageboxframebottomright}};},
+        ]
+        \begin{center}\includegraphics[width=\textwidth]{#2}\end{center}%        
+        \begin{flushright}\textit{#3}\end{flushright}
+    \end{tcolorbox}
+}
+
+% In image beside a text
+% #1 - l = image left, r = image right, default l
+% #2 - image width incl box in percentage of textwidth
+% #3 - path to the image
+% #4 - title
+% body - The text besides the image
+\NewEnviron{sideimagebox}[4][l]{
+    \ifthenelse{\equal{#1}{l}}{                                         % Image on the left
+        \begin{minipage}[t]{#2\textwidth}\vspace{0pt}%
+            \@imagebox{l}{#3}{#4}\vspace{5mm}%
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{\textwidth-#2\textwidth}\vspace{0pt}%
+            \BODY%
+        \end{minipage}
+    }{                                                          % Image on the right
+        \begin{minipage}[t]{\textwidth-#2\textwidth}\vspace{0pt}%
+            \BODY%
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{#2\textwidth}\vspace{0pt}%
+            \@imagebox{r}{#3}{#4}\vspace{5mm}%            
+        \end{minipage}
+
+    }    
+}
