@@ -100,18 +100,17 @@
 
 % Section
 \titleformat{\section}%[block]
-{\color{colSection}\@fontSection\huge}
+{\color{colSection}\@fontSection\huge\raggedright}
 {}
-{0.5em}
+{0cm}
 {}
 [{\titleline{\color{colTitleRuler}\titlerule[0.5pt]}}]
 
 
 % Subsection
 \titleformat{\subsection}%[block]
-{\color{colSubsection}\@fontSubsection\LARGE}
+{\vspace{-2pt}\color{colSubsection}\@fontSubsection\Large\filleft}
 {}
-{0.5em}
+{0cm}
 {}
-[{\titleline{\color{colTitleRuler}\titlerule[0.5pt]}}]
-
+[\vspace{-5pt}]
