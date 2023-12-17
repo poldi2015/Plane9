@@ -3,6 +3,7 @@
 
 \RequirePackage{fancyhdr}               % Header/Footer
 \RequirePackage[newparttoc]{titlesec}	% Chapter & Section formatting
+\RequirePackage{amssymb}                % Box characters for itemizedlists
 
 %
 % Document layout
@@ -29,9 +30,9 @@
 \geometry{a4paper,
     includeheadfoot,
     top=5mm,
-    headheight=30mm,
+    headheight=25mm,
     headsep=10mm,
-    footskip=30mm,
+    footskip=25mm,
     bottom=7mm,
     left=20mm,
     right=25mm,
@@ -114,3 +115,13 @@
 {0cm}
 {}
 [\vspace{-5pt}]
+
+
+%
+% List formatting
+%
+
+\renewcommand{\labelitemi}{\color{itemBullet}$\blacksquare$}
+\setlist[description]{
+    font=\color{itemTitle}
+}
