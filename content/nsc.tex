@@ -22,26 +22,33 @@ Angestellt bis vor 6 Wochen am Raumhafen von Valhalla auf Callisto. Dann ausgeli
 
 Auf Hellgate gibt es folgende Pers"onlichkeiten: 
 
-\begin{itemize}
-    \item Dr.~Acra Link: Technische Leitung der Hellgate Station
-    \item Sina Hendrik: Administrative Leitung der Hellgate Station
-    \item Dr.~Petrova: Technische Leitung der F"orderminen
-    \item Henk Arongate: Sicherheitschef    
-    \item Kriegsmeister Jos\'{e} \frqq{}Toro\flqq{} Alvarez: Norm. Ausbilder der Jagdverb"ande des Protektorats, Kriegsheld.
-    \item Arbeiter Mob: Fight +2, Agility +1, Body +3, HP 10, Courage +2
-\end{itemize}
+\begin{description}
+    \item[Dr.~Acra Link] Technische Leitung der Hellgate Station
+    \item[Sina Hendrik] Administrative Leitung der Hellgate Station
+    \item[Dr.~Petrova] Technische Leitung der F"orderminen
+    \item[Henk Arongate] Sicherheitschef    
+    \item[Kriegsmeister Jos\'{e} \frqq{}Toro\flqq{} Alvarez] Norm. Ausbilder der Jagdverb"ande des Protektorats, Kriegsheld.
+\end{description}
+
+\begin{nscsheet}[h]{Arbeiter Mob}
+    \nscstats[ATT=2,AGG=1,EMP=1,KNO=1,HP=10]
+    \nscruler
+    \begin{nscinventory}
+        \nscitem[Waffen] Werkzeug +2            
+    \end{nscinventory}
+\end{nscsheet}
 
 \newsection{Sicherheitspersonal Hellgate}
 
 Neben \emph{Grace Anders} sind folgende Personen des Sicherheitsdienstes relevant:
 
-\begin{itemize}
-    \item Henk Arongate: Sicherheitschef    
-    \item Karl Sandos: Stationsleiter des St"utzpunkts der Sicherheitskr"afte. Vorgesetzter von Grace Anders.
-    \item Luke Dexter: Trupp F"uhrer der Sondereinsatzgruppe f"ur die Befreiung der Geiseln.
-    \item Luke Lengdon: Mitarbeiter Sicherheitsdienst. Wird bei der Geiselname auf dem Sicherheitsst"utzpunkt schwer 
-    verletzt. Ehemaliger Freund von Grace Anders. Seit 2 Wochen getrennt.
-\end{itemize}
+\begin{description}
+    \item[Henk Arongate] Sicherheitschef    
+    \item[Karl Sandos] Stationsleiter des St"utzpunkts der Sicherheitskr"afte. Vorgesetzter von Grace Anders.
+    \item[Luke Dexter] Trupp F"uhrer der Sondereinsatzgruppe f"ur die Befreiung der Geiseln.
+    \item[Luke Lengdon] Mitarbeiter Sicherheitsdienst. Wird bei der Geiselname auf dem Sicherheitsst"utzpunkt schwer 
+        verletzt. Ehemaliger Freund von Grace Anders. Seit 2 Wochen getrennt.
+\end{description}
 
 \newsection{Geiselnehmer}
 
@@ -87,7 +94,15 @@ Unterst"utung der Charaktere abgestellt.
     Station und der Mienen anfragen. W"ahrend der Entf"uhrung kann sie die Charaktere unterst"uten.
 \end{sideimagebox}
 
-Grace Anders: Fight +4, Agility +3, Body +2, HP 10
+\begin{nscsheet}[h]{Grace Anders}
+    \nscstats[ATT=4,AGG=3,EMP=4,KNO=3,HP=10]
+    \nscruler
+    \begin{nscinventory}
+        \nscitem[Waffen] Boltpistol +3
+        \nscitem[R"ustung] Schussichere Weste -6
+    \end{nscinventory}
+\end{nscsheet}
+
 
 \newsection{Besatzung HeM05}
 
@@ -145,9 +160,12 @@ Dem Rondra Hospital f"allt eine wichtige Rolle in dieser Geschichte zu. Folgende
 
 \xls{} entstammt einer reichen Familie aus den F"uhrungsreihen der USI Corporation. Fr"uhzeitig hatte sie sich von ihrer Familie abgewandt und sich von Luna abgesetzt um einen Schmugglering f"ur Hilfsg"uter im Asteroideng"urtel zu gr"unden. Kurze Zeit sp"ater wurde ihr Schiff von Piraten aufgebracht und sie geriet in Gefangenschaft. Nach der "Ubernahme des Kaperschiffs und Zusammenf"uhrung mit ihrer Schmugglerbande macht sie sich einen Namen als ber"ucktigsten Pirantenf"uhrer des Pirantenverband Roter Drache mit dem Emblem eines schwarzen Drachens auf rotem Grund.
 
-\begin{sideimagebox}[r]{0.55}{./images/wang_xiao_long.png}{\xl}
-    Vor zwei Jahren geriet \xl{} auf Callisto nach einem Zusammensto\3 mit der Sun Ye On Sekte in Gefangenschaft und wurde vom Konzerngardisten auf Valhalla inhaftiert. Dort unterzog man sie unter gro\3er Geheimhaltung einem klinischen Eingriff. Bei diesem Eingriff wurde der von Prof.~Dr.~Naratova entwickelten ``freien KI'' Symbiont in ihrem Gehirn frei gesetzt. Die Oeration wurde durch Prof.~Dr.~Sanders durchgef"uhrt. Prof.~Dr.~Sanders handelte dabei im direkten Auftrag von Prof.~Dr.~Naratovas ohne das Wissen der USI Agenten. Durch ihre starke Pers"onlichkeit konnte \xl{} verhindern da\3 die KI ihren Geist vollst"andig "ubernehmen konnte und so verschmolzen der Geist und das artifizielle Gehirnzu einer Symbiose genau so wie Prof.~Dr.~Naratova es sich immer erhofft hatte. Der neu entstandene KI--Mensch Twitter wurde nach einem vorget"auschten Hirntod aus der Haftanstalt geschmuggelt und freigelassen. Nach der ersten Regenration in einem Schmuggellager schlo\3 sie sich \xl{} dem Luna--Syndikats an um auf Valhalla Nachforschungen zu ihrer ungewollten Verwandlung anzustelle. Als Pirat und Schmugglerk"onig wohlbekannt fand sie bei Nemessis einen wilkommenen G"onner. Die Verwandlung in eine KI ist au\3er Ihr, Naratova und deren Mitarbeitern niemandem bekannt.
+\begin{sideimagebox}[r]{0.61}{./images/wang_xiao_long.png}{}
+    Vor zwei Jahren geriet \xl{} auf Callisto nach einem Zusammensto\3 mit der Sun Ye On Sekte in Gefangenschaft und wurde vom Konzerngardisten auf Valhalla inhaftiert. Dort unterzog man sie unter gro\3er Geheimhaltung einem klinischen Eingriff. Bei diesem Eingriff wurde der von Prof.~Dr.~Naratova entwickelten ``freien KI'' Symbiont in ihrem Gehirn frei gesetzt. Die Oeration wurde durch Prof.~Dr.~Sanders durchgef"uhrt. Prof.~Dr.~Sanders handelte dabei im direkten Auftrag von Prof.~Dr.~Naratovas ohne das Wissen der USI Agenten. Durch ihre starke Pers"onlichkeit konnte \xl{} verhindern da\3 die KI ihren Geist vollst"andig "ubernehmen konnte und so verschmolzen der Geist und das artifizielle Gehirnzu einer Symbiose genau so wie Prof.~Dr.~Naratova es sich immer erhofft hatte. Der neu entstandene KI--Mensch Symbiont wurde nach einem vorget"auschten Hirntod aus der Haftanstalt geschmuggelt und freigelassen. 
+    Nach der ersten Regenration in einem Schmuggellager schlo\3 sie sich \xl{} dem Luna--Syndikats an um auf Valhalla Nachforschungen zu ihrer ungewollten Verwandlung anzustelle.
 \end{sideimagebox}
+
+ Als Pirat und Schmugglerk"onig wohlbekannt fand sie bei Nemessis einen wilkommenen G"onner. Die Verwandlung in eine KI ist au\3er Ihr, Naratova und deren Mitarbeitern niemandem bekannt.
 
 \xl{} ist eine hochgewachsene Asiatin Anfang 40, ein Pure, die sich als Samurai mit entsprechender R"usting pr"asentiert. Sie ist intelligent, gewitzt, skrupellos und liebt das Risiko. Durch ihre finanziellen M"oglichkeiten und Kontakte in ihrem fr"uheren Leben hat Sie ihren K"orper durch zahllose Modifikationen zu einer Kampfmaschiene entwickelt die einem Omega in nichts nachsteht.
 
@@ -155,7 +173,15 @@ Im Rahmen des Abenteuers verfolgt sie das Ziel die Forschungsergebnisse Naratova
 
 Vor dem Zusammentreffen mit den Charakteren kennt sie den Standort und den Namen der USI Tochter Cyberbrain nicht.
 
-\pinyin{Wang2} \pinyin{Xiao3} \pinyin{Long2}: Fight +9, Agility +10, Body +4, HP 14
+\begin{nscsheet}[h]{\xls}
+    \nscstats[ATT=9,AGG=10,EMP=4,KNO=4,HP=14]
+    \nscruler
+    \begin{nscinventory}
+        \nscitem[Waffen] Boltgun +4, Railgun +6
+        \nscitem[R"ustung] Schwere R"ustung -8
+    \end{nscinventory}
+\end{nscsheet}
+
 
 \newsection{Carina alias Fleur Soleil}
 
@@ -169,7 +195,7 @@ Vor dem Zusammentreffen mit den Charakteren kennt sie den Standort und den Namen
 
 Nemessis ist der Duke von Valhalla, der Pate des Luna--Syndikats. Nemessis ist ein Slag dessen K"orper sich nicht mehr selbst am Leben erhalten kann. 
 
-\begin{sideimagebox}[r]{0.7}{./images/nemessis.png}{Nemessis}
+\begin{sideimagebox}[r]{0.7}{./images/nemessis.png}{}
     Ein Gro\3teil seiner Gliedma\3en und sonstigen K"orperfunktionen sind durch synthetische Teile ersetzt die Ihm das Aussehen eines Cyborgs geben. Nemessis hat die Unterwelt auf Valhalla durch seine gut organisierten Untergebenen und sein weitreichendes Kontaktenetz
     fest im Griff. Das Syndikat betreibt das lokake Fusionskraftwerk von Valhalla und damit die Lebensversorung. E
 \end{sideimagebox}
@@ -223,7 +249,7 @@ innerhalb der Geb"aude "ubernehmen die jeweiligen Unternehmen selbst.
 
 Konzerngardist Fight +3, Agility +3, Body +1, HP 10, Bodyarmor -6, Railgun +5, Boltgun +3
 
-\newsection{Sto"strupp Cynarion}
+\newsection[Sto"strupp Cynarion]{Stosstrupp Cynarion}
 
 Zur Unterst"utzung der Charaktere zur die Infiltration der Cyberbrain Forschungseinrichtung kann Cynarion bis zu 
 drei S"oldner bereit stellen.
