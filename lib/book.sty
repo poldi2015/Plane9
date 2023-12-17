@@ -3,16 +3,18 @@
 
 \ProvidesPackage{lib/book}
 
-\RequirePackage{keycommand}
+\RequirePackage{keycommand}         % commands with key-value style
 \RequirePackage{everypage}
-\RequirePackage{tikz}
+\RequirePackage{tikz}               % graphics
     \usetikzlibrary{calc}           % needed for boxes
-\RequirePackage{xcolor}
+\RequirePackage{xcolor}             % advanced color slection
 \usepackage{xifthen}
-\RequirePackage{geometry}
+\RequirePackage{geometry}           % page borders
 
-\RequirePackage[hidelinks]{hyperref}
-\RequirePackage{multicol}
+\RequirePackage[hidelinks]{hyperref} % disable hyperrefs
+\RequirePackage{multicol}           % 
+
+\RequirePackage{enumitem}           % for package layout (item formatting) and boxes for nscs
 
 
 %
@@ -21,6 +23,7 @@
 
 \RequirePackage{lib/fonts}
 \RequirePackage{lib/colors}
+\RequirePackage{lib/strings}
 \RequirePackage{lib/layout}
 \RequirePackage{lib/pages}
 \RequirePackage{lib/boxes}
