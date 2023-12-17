@@ -4,23 +4,29 @@
 \RequirePackage[T1]{fontenc}
 \usepackage{fontspec}
 
-\renewcommand{\sfdefault}{lmss}
+\renewcommand{\sfdefault}{lmss}                                     % Default font light sans serif
 
 %
 % Font mappings
 %
 
 % Footer
-\newcommand{\@fontFoot}{\normalfont\scshape}
-\newcommand{\@fontPgNumFoot}{\normalfont}
+\newcommand{\@fontFoot}{\normalfont\scshape}                        % Footer title
+\newcommand{\@fontPgNumFoot}{\normalfont}                           % Psge Number in footer
 
 % Chapter, Section Titles
-\newcommand{\@fontChapter}{\expaniva\huge}
-\newcommand{\@fontSection}{\expaniva\huge}
-\newcommand{\@fontSubsection}{\expaniva\Large}
+\newcommand{\@fontChapter}{\expaniva\huge}                          % Chapter title
+\newcommand{\@fontSection}{\expaniva\huge}                          % Section title
+\newcommand{\@fontSubsection}{\expaniva\Large}                      % Subsection title
 
 % Font for remark boxes
-\newcommand{\@fontRemark}{\fontfamily{lmtt}\selectfont}
+\newcommand{\@fontRemark}{\fontfamily{lmtt}\selectfont}             % Remark text
+
+% Fonts for NSC Sheets
+\newcommand{\@fontNscSheetTitle}{\expaniva\Large}                   % NSC Character title
+\newcommand{\@fontNscSheet}{\fontfamily{cmss}\small\selectfont}     % NSC context text
+\newcommand{\@fontNscStats}{\fontfamily{cmss}\small\selectfont}     % NSC Attributes
+\newcommand{\@fontNscItems}{\fontfamily{cmss}\small\selectfont}     % NSC Inventory titles
 
 
 %

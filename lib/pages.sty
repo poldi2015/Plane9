@@ -114,7 +114,7 @@
 
 \newcommand{\pageimage}[1]{
     \newgeometry{left=5mm,right=5mm,rmargin=1mm}
-    \clearpage
+    \clearpage\newpage
     \thispagestyle{empty}
     %
         \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{#1}};

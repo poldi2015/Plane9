@@ -6,13 +6,15 @@
 \RequirePackage{calc}
 \RequirePackage[export]{adjustbox}
 
-
 %
 % Remarkbox
 %
 
+% Top image of the remark box
 \pgfdeclareimage[width=\columnwidth-5mm,height=4mm]{@boxtopframe}{./lib/images/box-top.png}
 
+% Remark box
+% %1 text content
 \newcommand{\@remarks}[1]{
     \begin{center}
         \begin{tcolorbox}[
@@ -25,6 +27,12 @@
             colback=remarkboxBg,
             coltext=remarkboxText,
             fuzzy shadow={2pt}{-2pt}{-0.5pt}{0.4mm}{black!60!white},
+            %underlay={%
+            %    \begin{tcbclipinterior}%
+            %        \node[anchor=south] at (interior.south) {%
+            %            \includegraphics[width=\tcb@width]{./lib/images/box_background.png}};%
+            %    \end{tcbclipinterior},
+            %},            
             interior code app={\node[anchor=center]  at ($(frame.north)+(0mm,1mm)$) {\pgfuseimage{@boxtopframe}};},
         ]        
         {\@fontRemark{}\setlength{\parskip}{10pt}%
@@ -69,13 +77,13 @@
             arc=1.5mm, outer arc=1mm,
             colback=imageboxBg,
             colframe=imageboxframe,            
+            finish={\node at ($(frame.south east)+(-14mm,+6.5mm)$) {\textit{#3}};},
             overlay app={\node[anchor=north west]  at ($(frame.north west)+(-3mm,3mm)$) {\pgfuseimage{@imageboxframetopleft}};},
             overlay app={\node[anchor=north east]  at ($(frame.north east)+(3mm,3mm)$) {\pgfuseimage{@imageboxframetoprigth}};},
             overlay app={\node[anchor=south west]  at ($(frame.south west)+(-3mm,-3mm)$) {\pgfuseimage{@imageboxframebottomleft}};},
             overlay app={\node[anchor=south east]  at ($(frame.south east)+(+3mm,-3mm)$) {\pgfuseimage{@imageboxframebottomright}};},
         ]
-        \begin{center}\includegraphics[width=\textwidth]{#2}\end{center}%        
-        \begin{flushright}\textit{#3}\end{flushright}
+        \begin{center}\includegraphics[width=\textwidth]{#2}\end{center}%                
     \end{tcolorbox}
 }
 
@@ -105,3 +113,95 @@
 
     }    
 }
+
+
+
+%
+% NSC Character sheet
+%
+
+% NSC character sheet box
+% #1 h == half text width, f==full text width (default)
+% #2 Charakter name
+% #3 Content
+\newcommand{\@nscsheet}[3][f]{   
+    \ifthenelse{\equal{#1}{f}}{%
+        \newcommand{\@nscsheetwidth}{\columnwidth-5mm}%
+    }{%
+        \newcommand{\@nscsheetwidth}{\columnwidth-3cm}%
+    }
+    \begin{center}
+        \begin{tcolorbox}[
+            enhanced,
+            breakable,
+            before skip=10mm,
+            after skip=5mm,
+            width=\@nscsheetwidth,
+            left=2mm,right=2mm,
+            bottom=1.7mm, top=1mm,
+            arc=3mm, outer arc=3mm,
+            colframe=nscSheetFrame,
+            colback=nscSheetBg,
+            colbacktitle=nscSheetBg,            
+            coltitle=nscSheetTitle,
+            fonttitle=\@fontNscSheetTitle,
+            title=#2,
+            toptitle=1.2mm,
+            bottomtitle=1.2mm,
+            fuzzy shadow={2pt}{-2pt}{-0.5pt}{0.4mm}{black!60!white},
+            %interior code app={\node[anchor=center]  at ($(frame.north)+(0mm,1mm)$) {\pgfuseimage{@boxtopframe}};},
+            ]
+            {\@fontNscSheet{}#3}
+        \end{tcolorbox}
+    \end{center}
+}
+
+\NewEnviron{nscsheet}[2][f]{
+    {\@nscsheet[#1]{#2}{\BODY}}
+}
+
+% Horizontal attribute table
+\newcommand{\@nsctfmt}[1]{\textbf{\MakeUppercase{#1}}}      % Formatting for table titles
+\newkeycommand\nscstats[
+    ATT=3,                          % Attack
+    AGG=3,                          % Defend/Agility
+    EMP=--,                         % Empathy
+    KNO=--,                         % Knoweledge   
+    HP=10                           % Hitpoints
+    ]{%
+    {
+        \vspace{1pt}
+        \begin{center}            
+            \resizebox{\linewidth}{\height}{ % Adapts the table size to the width of the tcolorbox
+            \@fontNscStats                   % Font for the whole content   
+            \begin{tabular}{c|c|c|c|c}
+                \rule{0pt}{-1mm}             %adds space between hline and table (with=0pt)
+                \@nsctfmt{\@strATT} & \@nsctfmt{\@strAGG} & \@nsctfmt{\@strEMP} & \@nsctfmt{\@strKNO} & \@nsctfmt{\@strHP} \\
+                    \commandkey{ATT}  & \commandkey{ATT}  & \commandkey{EMP}  & \commandkey{KNO}  & \commandkey{HP} \\
+            \end{tabular}
+            }
+        \end{center}
+    }%
+}
+
+% Full with horizontal ruler (separator) between parts of the NSC character sheet
+\newcommand{\nscruler}{%
+    \vspace{2pt}%
+    \hspace{-9pt}\rule{\linewidth+18pt}{1.5pt}
+    \vspace{0.5pt}%
+}
+
+% Inventory list
+% Use \nscitem instead of \item inside
+\newlist{nscinventory}{description}{1}
+\setlist[nscinventory]{
+    font=\@fontNscStats,
+    leftmargin=1.7cm+\labelsep,    
+    align=parleft,
+    labelwidth=1.7cm,
+    itemsep=2pt,
+    nosep,
+    topsep=0pt,
+}
+
+\newcommand{\nscitem}[1][]{\item[#1] }
