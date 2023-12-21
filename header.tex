@@ -4,20 +4,13 @@
 \usepackage{german}
 \usepackage{t1enc}
 \usepackage{eurosym}
-\usepackage{ifthen}
-\usepackage{color}
-\usepackage{graphicx}
-\usepackage{wrapfig}
 \usepackage{xpinyin}
-\usepackage[toc,page]{appendix}
+\usepackage{multirow}                   % Needed for multi column rows in tables (e.g. credits)
+
+%\usepackage[toc,page]{appendix}
 
 \usepackage{lib/book}
 
 % Allow to rename intro  chapter for Players Guide
 \newcommand{\introchaptername}[1]{\def\@introchaptername{#1}}
 \introchaptername{Einleitung}
-
-\newcommand{\m}[1]{\textcolor{highlight}{\textbf{#1}}}
-
-%\graphicspath{images/}
-\definecolor{highlight}{rgb}{1,.6,.1}
