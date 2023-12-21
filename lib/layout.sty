@@ -4,6 +4,7 @@
 \RequirePackage{fancyhdr}               % Header/Footer
 \RequirePackage[newparttoc]{titlesec}	% Chapter & Section formatting
 \RequirePackage{amssymb}                % Box characters for itemizedlists
+\RequirePackage{csquotes}               % Natural language
 
 %
 % Document layout
@@ -12,11 +13,13 @@
 \newcommand{\preamble}{
     %\frontmatter
     \pagestyle{empty}
+    \pagenumbering{gobble}
 }
 
 \newcommand{\content}{
     %\mainmatter
     \pagestyle{plain}
+    \pagenumbering{arabic}
 }
 
 
@@ -86,6 +89,20 @@
     }
 }
 
+\fancypagestyle{headeronly}{
+    \fancyhf{} % clear all headers and footers
+
+    \fancyhead{
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[inner sep=0pt,anchor=north west] at (current page.north west)
+            {\includegraphics[width=\paperwidth]{lib/images/header-page}};
+        \end{tikzpicture}
+        \newgeometry{top=5cm}
+    }
+    \fancyfoot{
+    }
+}
+
 %
 % Chapter and section layout
 % 
@@ -124,4 +141,17 @@
 \renewcommand{\labelitemi}{\color{itemBullet}$\blacksquare$}
 \setlist[description]{
     font=\color{itemTitle}
+}
+
+
+%
+% Natural language
+%
+
+\newcommand{\say}[1]{\enquote{#1}}              % Inline quotes
+
+\NewEnviron{speech}{                            % Quotes in own paragraph
+    \begin{displayquote}
+        \BODY
+    \end{displayquote}
 }

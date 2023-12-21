@@ -1,10 +1,11 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
 
-\RequirePackage{environ}
-\RequirePackage[many]{tcolorbox}
-\RequirePackage{calc}
-\RequirePackage[export]{adjustbox}
+\RequirePackage[many]{tcolorbox}        % Boxes
+\RequirePackage{calc}                   % Calculate dimensions
+\RequirePackage[export]{adjustbox}      % NSC sheet resizebox
+\RequirePackage[strict]{changepage}     % Top and bottom images even & odd page selection
+
 
 %
 % Remarkbox
@@ -112,6 +113,29 @@
         \end{minipage}
 
     }    
+}
+
+
+%
+% Bottom image box
+% 
+
+% Adds an image full page width at the bottom of the page hiding the footer.
+%
+% #1 - image path
+\newcommand*{\bottomimage}[1]{%
+    \thispagestyle{headeronly}
+    \begin{figure*}[!b]
+        \makebox[\paperwidth+3pt][l]{%
+            \ifthenelse{\isodd{\thepage}}{%
+                \hspace{-\hoffset-\oddsidemargin-1in-3pt}%
+            }{%
+                \hspace{-\hoffset-\evensidemargin-1in-3pt}%
+            }%
+            \includegraphics[width=\paperwidth+3pt]{#1}
+        }%
+        \vspace*{-\dimexpr\paperheight-\textheight-\headsep-\headheight-\topmargin-\voffset-1in+13pt\relax} % topmargin is a negative value
+    \end{figure*}
 }
 
 

@@ -6,14 +6,14 @@
 %
 
 \newenvironment{abstract}{}{}
-\usepackage{abstract}
+\RequirePackage{abstract}
     
 
 %
 % Titlepage
 %
 
-% Full featured titlepage for book printing
+% Full featured book cover page
 \newkeycommand\booktitle[
     image=,
     logo=,
@@ -41,12 +41,11 @@
         \fillstroke{[1]}{[0]}{1}{\commandkey{annotations}}
     \end{center}
     %
-    \setcounter{page}{1}
     \clearpage
     \restoregeometry
 }
 
-% Simplified titlepage for plain text layout
+% Titlepage within the book
 \newkeycommand\plaintitle[
     logo=logo.png,
     title=Title,
@@ -62,11 +61,22 @@
         \begin{center}\includegraphics[scale=0.4]{\commandkey{logo}}\end{center}%
     }
     \author{\commandkey{author}}
-    \date{Mai 2019}
+    \date{\today}
     %
     \maketitle
-    %
-    \setcounter{page}{1}
+}
+
+
+%
+% Empty page
+%
+
+% Create an totally empty page
+\newcommand{\emptypage}{
+    \newpage
+    \thispagestyle{empty}   % Ensures the new page has no headers or footers
+    \mbox{}                 % Insert an empty box to create the page
+    \newpage
 }
 
 
@@ -122,6 +132,7 @@
     \clearpage
     \restoregeometry
 }
+
 
 
 %
