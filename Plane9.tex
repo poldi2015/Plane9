@@ -8,12 +8,22 @@
 
 \preamble
 
+% Book cover front page
 \booktitle[
     image = images/titlepage-bg,
     logo = images/logo,
     title = Operation P9,
     subtitle = RPG Kampagne,
     annotations = Bernd Haberstumpf
+]
+
+\input{content/credits.tex}
+
+\plaintitle[
+    logo = images/logo.png,
+    title = Operation P9,
+    subtitle = RPG Kampagne,
+    author = Bernd Haberstumpf
 ]
 
 \tableofcontents
@@ -30,7 +40,10 @@
 \newpage
 \input{content/nsc.tex}
 \input{content/locations.tex}
+
+\input{content/roleplaying.tex}
 \input{content/appendix.tex}
+\input{content/sources.tex}
 
 \end{document}
 \end
