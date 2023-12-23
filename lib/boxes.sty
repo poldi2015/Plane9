@@ -47,6 +47,29 @@
     \vspace{5mm}\@remarks{\BODY}
 }
 
+%
+% Halb text size box (for two column text)
+%
+
+% Text with two columns.
+% #1 - l = image left, r = image right, default l
+% #2 - image width incl box in percentage of textwidth
+% body - The text besides the image
+\NewEnviron{column}[2][l]{%    
+    \ifthenelse{\equal{#1}{l}}{%                                 % text the left
+        \begin{minipage}[t]{#2\textwidth}\vspace{0pt}%
+            \BODY
+        \end{minipage}
+        \hfill
+    }{%                                                          % Text on the right
+        \hfill
+        \begin{minipage}[t]{#2\textwidth}\vspace{0pt}%
+            \BODY
+        \end{minipage}
+
+    }
+}
+
 
 %
 % Imagebox
@@ -150,9 +173,9 @@
 % #3 Content
 \newcommand{\@nscsheet}[3][f]{   
     \ifthenelse{\equal{#1}{f}}{%
-        \newcommand{\@nscsheetwidth}{\columnwidth-5mm}%
+        \newcommand{\@nscsheetwidth}{\textwidth-4cm}%
     }{%
-        \newcommand{\@nscsheetwidth}{\columnwidth-3cm}%
+        \newcommand{\@nscsheetwidth}{\textwidth-2pt}%
     }
     \begin{center}
         \begin{tcolorbox}[
