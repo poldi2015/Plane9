@@ -1,5 +1,6 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
+\RequirePackage{pagecolor}                          % Used for black background e.g. in tableofcontent
 
 %
 % Abstract
@@ -7,6 +8,7 @@
 
 \newenvironment{abstract}{}{}
 \RequirePackage{abstract}
+
     
 
 %
@@ -87,6 +89,23 @@
 \usepackage{tocloft}                % Pagestyle, separator... [titles] uses the chapter format for the title
 \tocloftpagestyle{empty}            % Change page style
 \RequirePackage[toc]{multitoc}      % Multicolumn ToC
+
+\renewcommand{\cftpartfont}{\color{tocTitles}\bfseries\Large}
+\renewcommand{\cftchapfont}{\color{tocTitles}\bfseries}
+\renewcommand{\cftsecfont}{\color{tocTitles}}
+\renewcommand{\cftsubsecfont}{\color{tocTitles}}
+
+\renewcommand{\cftpartpagefont}{\color{tocTitles}\bfseries\Large}
+\renewcommand{\cftchappagefont}{\color{tocTitles}\bfseries}
+\renewcommand{\cftsecpagefont}{\color{tocTitles}}
+\renewcommand{\cftsubsecpagefont}{\color{tocTitles}}
+
+\newcommand{\customtableofcontent}{
+    \newpagecolor{black}
+    \tableofcontents
+    \newpage
+    \restorepagecolor
+}
 
 % Unnumbered sections
 \setcounter{secnumdepth}{1}
