@@ -3,13 +3,13 @@
 ![Logo](images/logo_readme.png)
 
 
-# Plane 9 from Outer Space
+# Operation P9
 
-**Plane 9 from Outer Space** ist eine Rollenspielplot basierend auf der Romanvorlage *[c23 - Band 3, in abyssum](https://www.century23.de/index.php/buecher)* von *[Ralph  Edenhofer](https://www.century23.de/index.php/autor)*. Die Geschichte spielt im 23. Jahrhundert im jovianischen System, also rund um den Planeten Jupiter. Vor ca. 4 Jahren wurde das jovianische System durch die Mutantennation des Protektorats für die Helium-3 Gewinnung erschlossen. Seit einigen Wochen kommt es immer wieder zu gefährlichen Zwischenfällen...
+**P9** ist eine Rollenspielkampagne basierend auf der Romanvorlage *[c23 - Band 3, in abyssum](https://www.century23.de/index.php/buecher)* von *[Ralph  Edenhofer](https://www.century23.de/index.php/autor)*. Die Geschichte spielt im 23. Jahrhundert im jovianischen System, also rund um den Planeten Jupiter. Vor ca. 4 Jahren wurde das jovianische System durch die Mutantennation des Protektorats für die Helium-3 Gewinnung erschlossen. Seit einigen Wochen kommt es immer wieder zu gefährlichen Zwischenfällen...
 
-## Der Plot
+## Der Geschichte
 
-Der Rollenspielplot, ein Science Fiction Thriller auf rund 60 Seiten, ist auf vier Spieler, die auf über 30 Personen in 20 Szenen 
+Der Geschichte, ein Science Fiction Thriller auf knapp 90 Seiten, ist auf vier Spieler, die auf über 30 Personen in 20 Szenen 
 bei einer Spielzeit von um die 40 Stunden treffen, augelegt. Bei der Geschichte handelt es sich um sog. 
 [Hard Science Fiction](https://en.wikipedia.org/wiki/Hard_science_fiction). Mit Magie und Außerirdischen, 
 Überlichtgeschwindigkeit und Beamen kann also nicht gerechnet werden. Dafür um so mehr mit harter Detektivarbeit, undurschaubaren
@@ -18,7 +18,7 @@ politischen Verstrickungen, unerwarteten Freunden, vielen spannenden Dialogen un
 Der Unterlagen sind auf zwei PDFs aufgeteilt:
 
 * [Der Plot für den Spielleiter](https://github.com/poldi2015/Plane9/releases/latest/download/Plane9.pdf)
-* [Der Spieler Referenz für die Mitspieler](https://github.com/poldi2015/Plane9/releases/latest/download/Players.pdf)
+* [Spieler Referenz für die Mitspieler](https://github.com/poldi2015/Plane9/releases/latest/download/Players.pdf)
 
 Zusätzlich dazu gibt es auch ein eigenes sehr einfaches Rollenspielsystem mit eigenem Charakterblatt für Spieler die
 sich sofort in die Geschichte vertiefen wollen anstatt an Charaketerwerten zu feilen. Wer trotzdem Freude an einem
