@@ -1,10 +1,10 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
 
-\RequirePackage{fancyhdr}               % Header/Footer
-\RequirePackage[newparttoc]{titlesec}	% Chapter & Section formatting
-\RequirePackage{amssymb}                % Box characters for itemizedlists
-\RequirePackage{csquotes}               % Natural language
+\RequirePackage{fancyhdr}                              % Header/Footer
+\RequirePackage[newparttoc,nobottomtitles*]{titlesec}	% Chapter & Section formatting
+\RequirePackage{amssymb}                               % Box characters for itemizedlists
+\RequirePackage[german=quotes]{csquotes}               % Natural language
 
 %
 % Document layout
@@ -61,7 +61,7 @@
         \end{tikzpicture}
         \begin{tikzpicture}[remember picture,overlay]
             \node[inner sep=0pt,anchor=north west] at (current page.north west)
-            {\includegraphics[width=\paperwidth]{lib/images/header-page}};
+            {\includegraphics[width=\paperwidth]{lib/images/header-page-left}};
         \end{tikzpicture}
         \newgeometry{top=5cm}
     }
@@ -72,7 +72,7 @@
     \end{tikzpicture}
     \begin{tikzpicture}[remember picture,overlay]
         \node[inner sep=0pt,anchor=north west] at (current page.north west)
-        {\includegraphics[width=\paperwidth]{lib/images/header-page}};
+        {\includegraphics[width=\paperwidth]{lib/images/header-page-right}};
     \end{tikzpicture}
     \newgeometry{top=5cm}
 }
@@ -83,7 +83,7 @@
             \node[xshift=20pt,yshift=12pt] at (current page.south west) {\@fontPgNumFoot\textcolor{colFoot}{\thepage}};
             \node[anchor=south west,xshift=\marginparwidth+\marginparpush-30pt,yshift=2pt] at (current page.south west) {\@fontFoot{\textcolor{colFoot}{ %
                 // \nouppercase\leftmark%
-                \ifthenelse{\isempty{\@sectionname}}{}{.\@sectionname}%
+                \ifthenelse{\isempty{\@sectionname}}{}{.\@sectionname} %
                 // }}
             };
         \end{tikzpicture}
@@ -96,7 +96,7 @@
             \node[xshift=-20pt,yshift=12pt] at (current page.south east) {\@fontPgNumFoot\textcolor{colFoot}{\thepage}};
             \node[anchor=south east,xshift=-\marginparwidth-\marginparpush+30pt,yshift=2pt] at (current page.south east) {\@fontFoot{\textcolor{colFoot}{ %
                 // \nouppercase\leftmark%
-                \ifthenelse{\isempty{\@sectionname}}{}{.\@sectionname}%
+                \ifthenelse{\isempty{\@sectionname}}{}{.\@sectionname} %
                 // }}
             };
         \end{tikzpicture}
@@ -162,10 +162,10 @@
 % Natural language
 %
 
-\newcommand{\say}[1]{\enquote{#1}}              % Inline quotes
+\newcommand{\say}[1]{"`#1"'}              % Inline quotes
 
-\NewEnviron{speech}{                            % Quotes in own paragraph
+\NewEnviron{speech}{                      % Quotes in own paragraph
     \begin{displayquote}
-        \BODY
+        "`\BODY"'
     \end{displayquote}
 }
