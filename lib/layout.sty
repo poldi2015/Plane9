@@ -5,6 +5,7 @@
 \RequirePackage[newparttoc,nobottomtitles*]{titlesec}	% Chapter & Section formatting
 \RequirePackage{amssymb}                               % Box characters for itemizedlists
 \RequirePackage[german=quotes]{csquotes}               % Natural language
+%\RequirePackage[]{crop}                   % Print borders
 
 %
 % Document layout
@@ -163,6 +164,12 @@
 %
 
 \newcommand{\say}[1]{"`#1"'}              % Inline quotes
+
+\newcommand{\speak}[1]{                   % short paragraph
+    \begin{displayquote}
+    "`#1"'
+    \end{displayquote}
+}
 
 \NewEnviron{speech}{                      % Quotes in own paragraph
     \begin{displayquote}
