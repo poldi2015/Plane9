@@ -127,12 +127,14 @@
 
 \def\@sectionname{} % Define variable for section name for the footer
 \newcommand{\newsection}[2][]{%
-    \section{#2}%     
+    \section*{#2}%
+    \ifthenelse{\isempty{#1}}{\addcontentsline{toc}{section}{#2}}{\addcontentsline{toc}{section}{#1}}%     
     \def\@sectionname{#2}           % change the section name on the footer
 }
 
-\newcommand{\newsubsection}[1]{%
-    \subsection{#1}
+\newcommand{\newsubsection}[2]{%
+    \subsection*{#2}
+    \ifthenelse{\isempty{#1}}{\addcontentsline{toc}{subsection}{#2}}{\addcontentsline{toc}{subsection}{#1}}%     
 }
 
 
