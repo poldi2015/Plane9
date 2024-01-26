@@ -132,7 +132,7 @@
     \def\@sectionname{#2}           % change the section name on the footer
 }
 
-\newcommand{\newsubsection}[2]{%
+\newcommand{\newsubsection}[2][]{%
     \subsection*{#2}
     \ifthenelse{\isempty{#1}}{\addcontentsline{toc}{subsection}{#2}}{\addcontentsline{toc}{subsection}{#1}}%     
 }
