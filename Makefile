@@ -23,5 +23,5 @@ $(BOOK)_print.pdf : $(BOOK).pdf
 
 clean:
 	latexmk -CA	
-	rm $(BOOK)_print.pdf
+	rm -f $(BOOK)_print.pdf
 	touch $(patsubst %,%.tex,$(DOCS))
