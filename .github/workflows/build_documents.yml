@@ -37,7 +37,7 @@ jobs:
 
       - name: Create Release ${{ github.ref_name }}
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1
         if: github.ref_type == 'tag'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -46,27 +46,6 @@ jobs:
           release_name: ${{ github.ref_name }}
           draft: false
           prerelease: false
-
-      - name: Release Plane9.pdf
-        id: upload-release-asset-plane9-pdf 
-        uses: actions/upload-release-asset@v1
-        if: github.ref_type == 'tag'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.assets_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./Plane9.pdf
-          asset_name: Plane9.pdf
-          asset_content_type: application/pdf
-
-      - name: Release Players.pdf
-        id: upload-release-asset-players-pdf 
-        uses: actions/upload-release-asset@v1
-        if: github.ref_type == 'tag'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.assets_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./Players.pdf
-          asset_name: Players.pdf
-          asset_content_type: application/pdf
+          files: |
+            Plane9.pdf
+            Players.pdf
