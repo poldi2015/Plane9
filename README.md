@@ -9,7 +9,7 @@
 
 ## Der Geschichte
 
-Der Geschichte, ein Science Fiction Thriller auf knapp 90 Seiten, ist auf vier Spieler, die auf über 30 Personen in 20 Szenen 
+Der Geschichte, ein Science Fiction Thriller auf knapp 120 Seiten, ist auf vier Spieler, die auf über 80 Personen in 45 Szenen 
 bei einer Spielzeit von um die 40 Stunden treffen, augelegt. Bei der Geschichte handelt es sich um sog. 
 [Hard Science Fiction](https://en.wikipedia.org/wiki/Hard_science_fiction). Mit Magie und Außerirdischen, 
 Überlichtgeschwindigkeit und Beamen kann also nicht gerechnet werden. Dafür um so mehr mit harter Detektivarbeit, undurschaubaren
