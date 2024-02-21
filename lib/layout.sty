@@ -68,15 +68,15 @@
     }
 
     \fancyhead[RO]{
-    \begin{tikzpicture}[remember picture,overlay]
-        \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/images/background-right}};
-    \end{tikzpicture}
-    \begin{tikzpicture}[remember picture,overlay]
-        \node[inner sep=0pt,anchor=north west] at (current page.north west)
-        {\includegraphics[width=\paperwidth]{lib/images/header-page-right}};
-    \end{tikzpicture}
-    \newgeometry{top=5cm}
-}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/images/background-right}};
+        \end{tikzpicture}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[inner sep=0pt,anchor=north west] at (current page.north west)
+            {\includegraphics[width=\paperwidth]{lib/images/header-page-right}};
+        \end{tikzpicture}
+        \newgeometry{top=5cm}
+    }
 
     \fancyfoot[LE]{
        \begin{tikzpicture}[remember picture,overlay]
@@ -107,13 +107,28 @@
 \fancypagestyle{headeronly}{
     \fancyhf{} % clear all headers and footers
 
-    \fancyhead{
+    \fancyhead[LE]{
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/images/background-left}};
+        \end{tikzpicture}
         \begin{tikzpicture}[remember picture,overlay]
             \node[inner sep=0pt,anchor=north west] at (current page.north west)
-            {\includegraphics[width=\paperwidth]{lib/images/header-page}};
+            {\includegraphics[width=\paperwidth]{lib/images/header-page-left}};
         \end{tikzpicture}
         \newgeometry{top=5cm}
     }
+
+    \fancyhead[RO]{
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/images/background-right}};
+        \end{tikzpicture}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[inner sep=0pt,anchor=north west] at (current page.north west)
+            {\includegraphics[width=\paperwidth]{lib/images/header-page-right}};
+        \end{tikzpicture}
+        \newgeometry{top=5cm}
+    }
+
     \fancyfoot{
     }
 }
