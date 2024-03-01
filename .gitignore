@@ -11,3 +11,7 @@
 _material
 *.synctex.gz
 resources
+!images/*.png
+!lib/images/*.png
+*.pdf
+*.png
