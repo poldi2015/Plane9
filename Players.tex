@@ -1,10 +1,12 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
-\documentclass[helvetica,a4paper,11pt,german,openany]{book}
+\documentclass[helvetica,a4paper,10pt,german,openany]{book}
 
 \input{header.tex}
 
 \begin{document}
+
+\preamble
 
 \plaintitle[
     logo = images/logo.png,
@@ -13,11 +15,13 @@
     author = Bernd Haberstumpf
 ]
 
-%\plaintitle{Spieler Referenz}
-
 \input{content/abstract.tex}
-\input{content/introduction.tex}
 
+\tableofcontents
+
+\content
+
+\input{content/introduction.tex}
 \input{content/roleplaying.tex}
 
 \end{document}
