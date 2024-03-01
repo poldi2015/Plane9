@@ -16,7 +16,7 @@
 %
 
 % Full featured book cover page
-\newkeycommand\booktitle[
+\newkeycommand\frontcover[
     image=,
     title=Title,
     subtitle=subtitle,
@@ -44,6 +44,31 @@
     %
     \clearpage
     \restoregeometry
+}
+
+% The cover page at the back
+\NewEnviron{backcover}[1]{
+    \clearpage
+    %
+    \thispagestyle{empty}
+    \newgeometry{left=5mm,right=5mm,rmargin=1mm}
+    %
+    \AddThispageHook{
+        \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{#1}};
+    }
+    \begin{center}
+        \vspace*{13mm}        
+        \begin{minipage}[t]{0.68\textwidth}\vspace{0pt}%
+            \@fontBackCover\color{backmattertext}\BODY
+        \end{minipage}        
+        \vfill
+    \end{center}
+    %
+    \clearpage
+    \restoregeometry
+}
+\newcommand{\backcoverquote}[1]{
+    {\color{backmatterquote}"`#1"'}
 }
 
 % Titlepage within the book
