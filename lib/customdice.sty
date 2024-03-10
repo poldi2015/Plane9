@@ -1,0 +1,403 @@
+%%
+%% This is file `customdice.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% customdice.dtx  (with options: `customdice')
+%% Copyright (c) 2022 Peter Rowlett
+%% 
+%% The package is licenced under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/
+\ProvidesPackage{customdice}[2022/07/31 customdice 1.0]
+
+\RequirePackage{tikz}
+\RequirePackage{etoolbox}
+
+\makeatletter
+\@ifundefined{customdicecoldefault}{}
+{\PackageWarning{customdice}{command `customdicecoldefault' already defined}}
+\@ifundefined{customdicebg}{}
+{\PackageWarning{customdice}{command `customdicebg' already defined}}
+\@ifundefined{customdicefg}{}
+{\PackageWarning{customdice}{command `customdicefg' already defined}}
+\@ifundefined{customdicebaseline}{}
+{\PackageWarning{customdice}{command `customdicebaseline' already defined}}
+\@ifundefined{setdicebaseline}{}
+{\PackageWarning{customdice}{command `setdicebaseline' already defined}}
+\@ifundefined{customdicefacesize}{}
+{\PackageWarning{customdice}{command `customdicefacesize' already defined}}
+\@ifundefined{customdicehalfway}{}
+{\PackageWarning{customdice}{command `customdicehalfway' already defined}}
+\@ifundefined{customdicelower}{}
+{\PackageWarning{customdice}{command `customdicelower' already defined}}
+\@ifundefined{customdiceupper}{}
+{\PackageWarning{customdice}{command `customdiceupper' already defined}}
+\@ifundefined{customdicedotsize}{}
+{\PackageWarning{customdice}{command `customdicedotsize' already defined}}
+\@ifundefined{customdicebigdotsize}{}
+{\PackageWarning{customdice}{command `customdicebigdotsize' already defined}}
+\@ifundefined{customdicecornerrounding}{}
+{\PackageWarning{customdice}{command `customdicecornerrounding' already defined}}
+\@ifundefined{customdiceborderthickness}{}
+{\PackageWarning{customdice}{command `customdiceborderthickness' already defined}}
+\@ifundefined{customdicetextscale}{}
+{\PackageWarning{customdice}{command `customdicetextscale' already defined}}
+\@ifundefined{setdicefacesize}{}
+{\PackageWarning{customdice}{command `setdicefacesize' already defined}}
+\@ifundefined{dice}{}
+{\PackageWarning{customdice}{command `dice' already defined}}
+\@ifundefined{bigdotdice}{}
+{\PackageWarning{customdice}{command `bigdotdice' already defined}}
+\@ifundefined{textdice}{}
+{\PackageWarning{customdice}{command `textdice' already defined}}
+\@ifundefined{textdicebot}{}
+{\PackageWarning{customdice}{command `textdicebot' already defined}}
+\@ifundefined{layoutdice}{}
+{\PackageWarning{customdice}{command `layoutdice' already defined}}
+\@ifundefined{tinydice}{}
+{\PackageWarning{customdice}{command `tinydice' already defined}}
+\@ifundefined{scriptsizedice}{}
+{\PackageWarning{customdice}{command `scriptsizedice' already defined}}
+\@ifundefined{footnotesizedice}{}
+{\PackageWarning{customdice}{command `footnotesizedice' already defined}}
+\@ifundefined{smalldice}{}
+{\PackageWarning{customdice}{command `smalldice' already defined}}
+\@ifundefined{normalsizedice}{}
+{\PackageWarning{customdice}{command `normalsizedice' already defined}}
+\@ifundefined{largedice}{}
+{\PackageWarning{customdice}{command `largedice' already defined}}
+\@ifundefined{Largedice}{}
+{\PackageWarning{customdice}{command `Largedice' already defined}}
+\@ifundefined{LARGEdice}{}
+{\PackageWarning{customdice}{command `LARGEdice' already defined}}
+\@ifundefined{hugedice}{}
+{\PackageWarning{customdice}{command `hugedice' already defined}}
+\@ifundefined{Hugedice}{}
+{\PackageWarning{customdice}{command `Hugedice' already defined}}
+\@ifundefined{tinybigdotdice}{}
+{\PackageWarning{customdice}{command `tinybigdotdice' already defined}}
+\@ifundefined{scriptsizebigdotdice}{}
+{\PackageWarning{customdice}{command `scriptsizebigdotdice' already defined}}
+\@ifundefined{footnotesizebigdotdice}{}
+{\PackageWarning{customdice}{command `footnotesizebigdotdice' already defined}}
+\@ifundefined{smallbigdotdice}{}
+{\PackageWarning{customdice}{command `smallbigdotdice' already defined}}
+\@ifundefined{normalsizebigdotdice}{}
+{\PackageWarning{customdice}{command `normalsizebigdotdice' already defined}}
+\@ifundefined{largebigdotdice}{}
+{\PackageWarning{customdice}{command `largebigdotdice' already defined}}
+\@ifundefined{Largebigdotdice}{}
+{\PackageWarning{customdice}{command `Largebigdotdice' already defined}}
+\@ifundefined{LARGEbigdotdice}{}
+{\PackageWarning{customdice}{command `LARGEbigdotdice' already defined}}
+\@ifundefined{hugebigdotdice}{}
+{\PackageWarning{customdice}{command `hugebigdotdice' already defined}}
+\@ifundefined{Hugebigdotdice}{}
+{\PackageWarning{customdice}{command `Hugebigdotdice' already defined}}
+\@ifundefined{tinytextdice}{}
+{\PackageWarning{customdice}{command `tinytextdice' already defined}}
+\@ifundefined{scriptsizetextdice}{}
+{\PackageWarning{customdice}{command `scriptsizetextdice' already defined}}
+\@ifundefined{footnotesizetextdice}{}
+{\PackageWarning{customdice}{command `footnotesizetextdice' already defined}}
+\@ifundefined{smalltextdice}{}
+{\PackageWarning{customdice}{command `smalltextdice' already defined}}
+\@ifundefined{normalsizetextdice}{}
+{\PackageWarning{customdice}{command `normalsizetextdice' already defined}}
+\@ifundefined{largetextdice}{}
+{\PackageWarning{customdice}{command `largetextdice' already defined}}
+\@ifundefined{Largetextdice}{}
+{\PackageWarning{customdice}{command `Largetextdice' already defined}}
+\@ifundefined{LARGEtextdice}{}
+{\PackageWarning{customdice}{command `LARGEtextdice' already defined}}
+\@ifundefined{hugetextdice}{}
+{\PackageWarning{customdice}{command `hugetextdice' already defined}}
+\@ifundefined{Hugetextdice}{}
+{\PackageWarning{customdice}{command `Hugetextdice' already defined}}
+\@ifundefined{tinytextdicebot}{}
+{\PackageWarning{customdice}{command `tinytextdicebot' already defined}}
+\@ifundefined{scriptsizetextdicebot}{}
+{\PackageWarning{customdice}{command `scriptsizetextdicebot' already defined}}
+\@ifundefined{footnotesizetextdicebot}{}
+{\PackageWarning{customdice}{command `footnotesizetextdicebot' already defined}}
+\@ifundefined{smalltextdicebot}{}
+{\PackageWarning{customdice}{command `smalltextdicebot' already defined}}
+\@ifundefined{normalsizetextdicebot}{}
+{\PackageWarning{customdice}{command `normalsizetextdicebot' already defined}}
+\@ifundefined{largetextdicebot}{}
+{\PackageWarning{customdice}{command `largetextdicebot' already defined}}
+\@ifundefined{Largetextdicebot}{}
+{\PackageWarning{customdice}{command `Largetextdicebot' already defined}}
+\@ifundefined{LARGEtextdicebot}{}
+{\PackageWarning{customdice}{command `LARGEtextdicebot' already defined}}
+\@ifundefined{hugetextdicebot}{}
+{\PackageWarning{customdice}{command `hugetextdicebot' already defined}}
+\@ifundefined{Hugetextdicebot}{}
+{\PackageWarning{customdice}{command `Hugetextdicebot' already defined}}
+\@ifundefined{dicefaceoutlinecol}{}
+{\PackageWarning{customdice}{command `dicefaceoutlinecol' already defined}}
+\@ifundefined{setdicefaceoutlinecol}{}
+{\PackageWarning{customdice}{command `setdicefaceoutlinecol' already defined}}
+\@ifundefined{defaultdicefaceoutlinecol}{}
+{\PackageWarning{customdice}{command `defaultdicefaceoutlinecol' already defined}}
+\makeatother
+
+\newcommand{\customdicecoldefault}{f40fc2340eb940fc8a170db0f81d7139} % using a UUID so we are extremely unlikely to clash with any user-specified colour name
+\global\let\customdicebg\customdicecoldefault
+\global\let\customdicefg\customdicecoldefault
+\newcommand{\dicefaceoutlinecol}{darkgray}
+\newcommand{\setdicefaceoutlinecol}[1]{%
+    \renewcommand{\dicefaceoutlinecol}{#1}%
+}
+\newcommand{\defaultdicefaceoutlinecol}{%
+    \renewcommand{\dicefaceoutlinecol}{darkgray}%
+}
+\newcommand{\customdicebaseline}{0.02}
+\newcommand{\setdicebaseline}[1]{%
+    \renewcommand{\customdicebaseline}{#1}%
+}
+\newcommand{\customdicefacesize}{1.65}
+\newcommand{\customdicehalfway}{0.825}
+\newcommand{\customdicelower}{0.4}
+\newcommand{\customdiceupper}{1.25}
+\newcommand{\customdicedotsize}{0.12}
+\newcommand{\customdicebigdotsize}{0.45}
+\newcommand{\customdicecornerrounding}{0.2}
+\newcommand{\customdiceborderthickness}{0.1}
+\newcommand{\customdicetextscale}{0.6}
+\newcommand{\setdicefacesize}[1]{%
+    \renewcommand{\customdicefacesize}{#1}%
+    \pgfmathsetmacro{\customdicehalfway}{#1/2}%
+    \pgfmathsetmacro{\customdicelower}{#1*0.425/1.65}%
+    \pgfmathsetmacro{\customdiceupper}{#1*1.25/1.65}%
+    \pgfmathsetmacro{\customdicedotsize}{#1*0.12/1.65}%
+    \pgfmathsetmacro{\customdicebigdotsize}{#1*0.45/1.65}%
+    \pgfmathsetmacro{\customdicecornerrounding}{#1*0.2/1.65}%
+    \pgfmathsetmacro{\customdiceborderthickness}{#1*0.1/1.65}%
+    \pgfmathsetmacro{\customdicetextscale}{#1*0.6/1.65}%
+}
+
+\newenvironment{customdiceenv}[1][white,black]{%
+    \foreach \colour in {#1}{%
+        \ifdefequal{\customdicebg}{\customdicecoldefault}{\global\let\customdicebg\colour}{\global\let\customdicefg\colour}%
+    }%
+    \begin{tikzpicture}[baseline=\customdicebaseline ex]
+    \draw[rounded corners=\customdicecornerrounding ex,\dicefaceoutlinecol,fill=\customdicebg,line width=\customdiceborderthickness ex] (0ex,0ex) rectangle (\customdicefacesize ex,\customdicefacesize ex);
+}{\end{tikzpicture}%
+    \global\let\customdicebg\customdicecoldefault%
+    \global\let\customdicefg\customdicecoldefault%
+}
+
+\newcommand{\dice}[2][white,black]{%
+    \begin{customdiceenv}[#1]
+        \ifnumequal{#2}{1}{
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicehalfway ex,\customdicehalfway ex) {};
+        }{\ifnumequal{#2}{2}{
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdiceupper ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdicelower ex) {};
+        }{\ifnumequal{#2}{3}{
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicehalfway ex,\customdicehalfway ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdiceupper ex) {};
+        }{\ifnumequal{#2}{4}{
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdiceupper ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdiceupper ex) {};
+        }{\ifnumequal{#2}{5}{
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdiceupper ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicehalfway ex,\customdicehalfway ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdiceupper ex) {};
+        }{\ifnumequal{#2}{6}{
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdicehalfway ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdiceupper ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdicehalfway ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdiceupper ex) {};
+        }{\ifnumequal{#2}{7}{
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdicehalfway ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdiceupper ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicehalfway ex,\customdicehalfway ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdicehalfway ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdiceupper ex) {};
+        }{\ifnumequal{#2}{8}{
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdicehalfway ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdiceupper ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicehalfway ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicehalfway ex,\customdiceupper ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdicehalfway ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdiceupper ex) {};
+        }{\ifnumequal{#2}{9}{
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdicehalfway ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicelower ex,\customdiceupper ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicehalfway ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicehalfway ex,\customdicehalfway ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdicehalfway ex,\customdiceupper ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdicelower ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdicehalfway ex) {};
+            \node[circle,fill=\customdicefg,inner sep=\customdicedotsize ex] at (\customdiceupper ex,\customdiceupper ex) {};
+        }{}}}}}}}}}
+    \end{customdiceenv}%
+}
+
+\newcommand{\bigdotdice}[1][white,black]{%
+    \begin{customdiceenv}[#1]
+        \node[circle,fill=\customdicefg,inner sep=\customdicebigdotsize ex] at (\customdicehalfway ex,\customdicehalfway ex) {};
+    \end{customdiceenv}%
+}
+
+\newcommand{\textdice}[2][white,black]{%
+    \begin{customdiceenv}[#1]
+        \node[\customdicefg,inner sep=0,scale=\customdicetextscale] at (\customdicehalfway ex,\customdicehalfway ex) {#2};
+    \end{customdiceenv}%
+}
+
+\newcommand{\textdicebot}[2][white,black]{%
+    \begin{customdiceenv}[#1]
+        \node[\customdicefg,inner sep=0,scale=\customdicetextscale] at (\customdicehalfway ex,\customdicehalfway ex) {#2};
+        \draw[line width=\customdiceborderthickness ex,\customdicefg] (\customdicelower ex,\customdicecornerrounding ex) --(\customdiceupper ex,\customdicecornerrounding ex);
+    \end{customdiceenv}%
+}
+
+\newcommand{\layoutdice}[6]{%
+    \setlength{\tabcolsep}{0pt}%
+    \renewcommand{\arraystretch}{0}%
+    \begin{tabular}{ccc}
+        ~ & #1 & ~\\
+        #4 & #2 & #3\\
+        ~ & #6 & ~\\
+        ~ & #5 & ~\\
+    \end{tabular}%
+}
+
+\newcommand{\tinydice}[2][white,black]{%
+    {\tiny\dice[#1]{#2}}%
+}
+\newcommand{\scriptsizedice}[2][white,black]{%
+    {\scriptsize\dice[#1]{#2}}%
+}
+\newcommand{\footnotesizedice}[2][white,black]{%
+    {\footnotesize\dice[#1]{#2}}%
+}
+\newcommand{\smalldice}[2][white,black]{%
+    {\small\dice[#1]{#2}}%
+}
+\newcommand{\normalsizedice}[2][white,black]{%
+    {\normalsize\dice[#1]{#2}}%
+}
+\newcommand{\largedice}[2][white,black]{%
+    {\large\dice[#1]{#2}}%
+}
+\newcommand{\Largedice}[2][white,black]{%
+    {\Large\dice[#1]{#2}}%
+}
+\newcommand{\LARGEdice}[2][white,black]{%
+    {\LARGE\dice[#1]{#2}}%
+}
+\newcommand{\hugedice}[2][white,black]{%
+    {\huge\dice[#1]{#2}}%
+}
+\newcommand{\Hugedice}[2][white,black]{%
+    {\Huge\dice[#1]{#2}}%
+}
+\newcommand{\tinybigdotdice}[1][white,black]{%
+    {\tiny\bigdotdice[#1]}%
+}
+\newcommand{\scriptsizebigdotdice}[1][white,black]{%
+    {\scriptsize\bigdotdice[#1]}%
+}
+\newcommand{\footnotesizebigdotdice}[1][white,black]{%
+    {\footnotesize\bigdotdice[#1]}%
+}
+\newcommand{\smallbigdotdice}[1][white,black]{%
+    {\small\bigdotdice[#1]}%
+}
+\newcommand{\normalsizebigdotdice}[1][white,black]{%
+    {\normalsize\bigdotdice[#1]}%
+}
+\newcommand{\largebigdotdice}[1][white,black]{%
+    {\large\bigdotdice[#1]}%
+}
+\newcommand{\LARGEbigdotdice}[1][white,black]{%
+    {\LARGE\bigdotdice[#1]}%
+}
+\newcommand{\Largebigdotdice}[1][white,black]{%
+    {\Large\bigdotdice[#1]}%
+}
+\newcommand{\hugebigdotdice}[1][white,black]{%
+    {\huge\bigdotdice[#1]}%
+}
+\newcommand{\Hugebigdotdice}[1][white,black]{%
+    {\Huge\bigdotdice[#1]}%
+}
+\newcommand{\tinytextdice}[2][white,black]{%
+    {\tiny\textdice[#1]{#2}}%
+}
+\newcommand{\scriptsizetextdice}[2][white,black]{%
+    {\scriptsize\textdice[#1]{#2}}%
+}
+\newcommand{\footnotesizetextdice}[2][white,black]{%
+    {\footnotesize\textdice[#1]{#2}}%
+}
+\newcommand{\smalltextdice}[2][white,black]{%
+    {\small\textdice[#1]{#2}}%
+}
+\newcommand{\normalsizetextdice}[2][white,black]{%
+    {\normalsize\textdice[#1]{#2}}%
+}
+\newcommand{\largetextdice}[2][white,black]{%
+    {\large\textdice[#1]{#2}}%
+}
+\newcommand{\Largetextdice}[2][white,black]{%
+    {\Large\textdice[#1]{#2}}%
+}
+\newcommand{\LARGEtextdice}[2][white,black]{%
+    {\LARGE\textdice[#1]{#2}}%
+}
+\newcommand{\hugetextdice}[2][white,black]{%
+    {\huge\textdice[#1]{#2}}%
+}
+\newcommand{\Hugetextdice}[2][white,black]{%
+    {\Huge\textdice[#1]{#2}}%
+}
+\newcommand{\tinytextdicebot}[2][white,black]{%
+    {\tiny\textdicebot[#1]{#2}}%
+}
+\newcommand{\scriptsizetextdicebot}[2][white,black]{%
+    {\scriptsize\textdicebot[#1]{#2}}%
+}
+\newcommand{\footnotesizetextdicebot}[2][white,black]{%
+    {\footnotesize\textdicebot[#1]{#2}}%
+}
+\newcommand{\smalltextdicebot}[2][white,black]{%
+    {\small\textdicebot[#1]{#2}}%
+}
+\newcommand{\normalsizetextdicebot}[2][white,black]{%
+    {\normalsize\textdicebot[#1]{#2}}%
+}
+\newcommand{\largetextdicebot}[2][white,black]{%
+    {\large\textdicebot[#1]{#2}}%
+}
+\newcommand{\Largetextdicebot}[2][white,black]{%
+    {\Large\textdicebot[#1]{#2}}%
+}
+\newcommand{\LARGEtextdicebot}[2][white,black]{%
+    {\LARGE\textdicebot[#1]{#2}}%
+}
+\newcommand{\hugetextdicebot}[2][white,black]{%
+    {\huge\textdicebot[#1]{#2}}%
+}
+\newcommand{\Hugetextdicebot}[2][white,black]{%
+    {\Huge\textdicebot[#1]{#2}}%
+}
+\endinput
+%%
+%% End of file `customdice.sty'.

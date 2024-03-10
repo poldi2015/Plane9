@@ -5,6 +5,8 @@
 \RequirePackage{calc}                   % Calculate dimensions
 \RequirePackage[export]{adjustbox}      % NSC sheet resizebox
 \RequirePackage[strict]{changepage}     % Top and bottom images even & odd page selection
+\RequirePackage{customdice}             % For dice in the rules chapter
+\RequirePackage{tabularx}               % For dice in the rules chapter
 
 
 %
@@ -253,3 +255,32 @@
 }
 
 \newcommand{\nscitem}[1][]{\item[#1] }
+
+
+%
+% Dice rules
+%
+% Environments for explaining dice rules
+%
+
+\setdicebaseline{0.004}
+
+% Since dice
+\newcommand{\sdice}[1]{{\huge\dice[diceBg,diceFg]{#1}}}
+
+% Dice range
+\newcommand{\tdice}[2]{{\huge\dice[diceBg,diceFg]{#1}}\large{} \raisebox{1mm}{\textsf{bis}} \huge\dice[diceBg,diceFg]{#2}}
+
+% Table with dice descriptions
+\NewEnviron{diceroles}{%
+    \begin{center}\begin{tabular}{m{2cm} m{11cm}}
+        \BODY
+    \end{tabular}\end{center}
+}
+
+% Example box
+\NewEnviron{ruleexample}{%
+    \begin{tcolorbox}[title=Beispiel]
+        \BODY
+    \end{tcolorbox}%
+}
