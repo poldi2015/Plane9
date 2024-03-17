@@ -265,11 +265,14 @@
 
 \setdicebaseline{0.004}
 
-% Since dice
+% Single dice
 \newcommand{\sdice}[1]{{\huge\dice[diceBg,diceFg]{#1}}}
 
+% two dice
+\newcommand{\tdice}[2]{{\huge\dice[diceBg,diceFg]{#1} \huge\dice[diceBg,diceFg]{#2}}}
+
 % Dice range
-\newcommand{\tdice}[2]{{\huge\dice[diceBg,diceFg]{#1}}\large{} \raisebox{1mm}{\textsf{bis}} \huge\dice[diceBg,diceFg]{#2}}
+\newcommand{\rdice}[2]{{\huge\dice[diceBg,diceFg]{#1}}\large{} \raisebox{1mm}{\textsf{bis}} \huge\dice[diceBg,diceFg]{#2}}
 
 % Table with dice descriptions
 \NewEnviron{diceroles}{%
