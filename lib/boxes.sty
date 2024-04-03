@@ -213,11 +213,11 @@
 % Horizontal attribute table
 \newcommand{\@nsctfmt}[1]{\textbf{\MakeUppercase{#1}}}      % Formatting for table titles
 \newkeycommand\nscstats[
-    ATT=3,                          % Attack
-    AGG=3,                          % Defend/Agility
-    EMP=--,                         % Empathy
-    KNO=--,                         % Knoweledge   
-    HP=10                           % Hitpoints
+    ATT=1,                          % Fight
+    AGG=1,                          % Agility
+    DEX=1,                          % Dexterity
+    COM=1,                          % Communication
+    CON=1                           % Const
     ]{%
     {
         \vspace{1pt}
@@ -226,8 +226,8 @@
             \@fontNscStats                   % Font for the whole content   
             \begin{tabular}{c|c|c|c|c}
                 \rule{0pt}{-1mm}             %adds space between hline and table (with=0pt)
-                \@nsctfmt{\@strATT} & \@nsctfmt{\@strAGG} & \@nsctfmt{\@strEMP} & \@nsctfmt{\@strKNO} & \@nsctfmt{\@strHP} \\
-                    \commandkey{ATT}  & \commandkey{ATT}  & \commandkey{EMP}  & \commandkey{KNO}  & \commandkey{HP} \\
+                \@nsctfmt{\@strATT} & \@nsctfmt{\@strAGG} & \@nsctfmt{\@strDEX} & \@nsctfmt{\@strCOM} & \@nsctfmt{\@strCON} \\
+                    \commandkey{ATT}  & \commandkey{AGG}  & \commandkey{DEX}  & \commandkey{COM}  & \commandkey{CON} \\
             \end{tabular}
             }
         \end{center}
