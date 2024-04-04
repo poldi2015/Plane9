@@ -13,18 +13,21 @@
 
 \vfill
 \begin{center}
-    \newcommand{\titleentry}[1]{\textbf{\hfill{}#1\hfill{}}}
-    \newcommand{\textentry}[1]{\textit{{\hfill{}#1\hfill{}}}}
-    \begin{tabular}{p{7cm} p{7cm}}
-        \titleentry{Bernd Haberstumpf} & \titleentry{Diego Mart\'in L\'opez, Verena Brodersen}\\
-        \textentry{Autor, Konzept und Layout} & \textentry{K"unstlerische Gestaltung} \\
+    \newcommand{\titleentry}[1]{{\textbf{#1}}}
+    \newcommand{\textentry}[1]{{\textit{#1}}}
+    \begin{tabularx}{0.75\textwidth} {
+        >{\centering\arraybackslash}X
+        >{\centering\arraybackslash}X
+    }
+        \titleentry{Bernd Haberstumpf}\newline\textentry{Autor, Konzept, Layout, Grafiken} & 
+        \titleentry{Diego Mart\'in L\'opez, Verena Brodersen}\newline\textentry{Grafiken}\\        
         \vspace{1cm}&\\
-        \multicolumn{2}{c}{\textbf{Ralph, Edenhofer}} \\
-        \multicolumn{2}{c}{\textit{Autor der Romanvorlage}}\\
+        \multicolumn{2}{c}{\titleentry{Ralph, Edenhofer}} \\
+        \multicolumn{2}{c}{\textentry{Autor der Romanvorlage}}\\
         &\\
-        \multicolumn{2}{c}{\textbf{Georg Blaschke, Christoph Neumann, Sabrina und Klaus Ostfalk-Ga\3ner}} \\
-        \multicolumn{2}{c}{\textit{Spieletest}}\\
-    \end{tabular}
+        \multicolumn{2}{c}{\titleentry{Georg Blaschke, Christoph Neumann, Sabrina und Klaus Ostfalk-Ga\3ner}} \\
+        \multicolumn{2}{c}{\textentry{Spieletest}}\\
+    \end{tabularx}
 \end{center}
 \vspace{3cm}
 
