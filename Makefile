@@ -19,7 +19,7 @@ all: $(patsubst %,%.pdf,$(DOCS))
 print : $(BOOK)_print.pdf
 
 $(BOOK)_print.pdf $(BOOK)_front.pdf $(BOOK)_front.png &: $(BOOK).pdf
-	$(PYTHON) $(PDF2PRINT) $< $(BOOK)_print.pdf $(BOOK)_front.pdf $(BOOK)_back.pdf -W 3 -H 3 -P 0
+	$(PYTHON) $(PDF2PRINT) $< $(BOOK)_print.pdf $(BOOK)_front.pdf $(BOOK)_back.pdf -W 3 -H 3 -P 0 -P -1
 	pdftoppm -png $(BOOK)_front.pdf > $(BOOK)_front.png
 	pdftoppm -png $(BOOK)_back.pdf > $(BOOK)_back.png
 
