@@ -1,6 +1,7 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
 % !TeX spellcheck = de_DE
+
 \begin{filecontents*}{\jobname.xmpdata}
     \Title{Operation P9}
     \Subject{RPG Kampagne}
@@ -11,10 +12,26 @@
     \Copyright{2019 Bernd Haberstumpf}
     \Source{Plan9.pdf}
 \end{filecontents*}
+
 \documentclass[a4paper,10pt,german,openany]{book}
 
+%
+% Adjust page layout for printing
+% 
+
+\newlength{\printtop}
+\setlength{\printtop}{0mm}                    % Cut away at top
+\newlength{\printbottom}
+\setlength{\printbottom}{0mm}                 % Cut away at bottom
+\newlength{\printinner}
+\setlength{\printinner}{0mm}                 % Cut away at inner (incl. Kleberand)
+\newlength{\printouter}
+\setlength{\printouter}{0mm}                  % Cut away at outer (incl. Kleberand)
+\newlength{\printextend}
+\setlength{\printextend}{0mm}                 % Dimension how much bigger images should be around the page side
+
 \input{header.tex}
-\hypersetup{hidelinks}
+\hypersetup{hidelinks}                        % Adjust Hyperlinks for prinitng
 
 \begin{document}
 
@@ -43,7 +60,8 @@
 
 \content
 
-\pageimage{images/jovian_system.jpg}
+\newpagecolor{pageBackground}
+\pageimage{images/cmyk/jovian_system_cmyk.jpg}
 
 \input{content/introduction.tex}
 \input{content/background.tex}

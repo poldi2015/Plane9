@@ -1,11 +1,12 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
 
-\usepackage{geometry}           % page borders
+\usepackage{geometry}                               % page borders
+\usepackage{calc}                                   % page borders
 
 \geometry{
-    paperwidth=223mm,
-    paperheight=303mm,
+    paperwidth=\paperwidth+\printinner+\printouter,
+    paperheight=\paperheight+\printtop+\printbottom,
 }
 
 \usepackage[x-3]{pdfx}              % Used for print Media PDF Version X3. Needs to be the first package loaded
@@ -20,7 +21,13 @@
 
 %\usepackage[toc,page]{appendix}
 
-\usepackage{lib/book}
+\usepackage[printtop=\printtop,
+            printinner=\printinner,
+            printouter=\printouter,
+            printtop=\printtop,
+            printbottom=\printbottom,
+            printextend=\printextend]
+            {lib/book}
 
 % Allow to rename intro  chapter for Players Guide
 \newcommand{\introchaptername}[1]{\def\@introchaptername{#1}}

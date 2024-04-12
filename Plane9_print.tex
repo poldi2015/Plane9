@@ -1,0 +1,71 @@
+%% Copyright 2019 Bernd Haberstumpf
+%% License: CC BY-NC
+% !TeX spellcheck = de_DE
+
+\begin{filecontents*}{\jobname.xmpdata}
+    \Title{Operation P9}
+    \Subject{RPG Kampagne}
+    \Author{Bernd Haberstumpf}
+    \Language{de-DE}
+    \Keywords{Roleplaying\sep SciFi}
+    \Publisher{Bernd Haberstumpf}
+    \Copyright{2019 Bernd Haberstumpf}
+    \Source{Plan9.pdf}
+\end{filecontents*}
+
+\documentclass[a4paper,10pt,german,openany]{book}
+
+%
+% Adjust page layout for printing
+% 
+
+\newlength{\printtop}
+\setlength{\printtop}{3mm}                    % Cut away at top
+\newlength{\printbottom}
+\setlength{\printbottom}{3mm}                 % Cut away at bottom
+\newlength{\printinner}
+\setlength{\printinner}{10mm}                 % Cut away at inner (incl. Kleberand)
+\newlength{\printouter}
+\setlength{\printouter}{3mm}                  % Cut away at outer (incl. Kleberand)
+\newlength{\printextend}
+\setlength{\printextend}{1mm}                 % Dimension how much bigger images should be around the page side
+
+\input{header.tex}
+\hypersetup{hidelinks}                        % Adjust Hyperlinks for prinitng
+
+\begin{document}
+
+\preamble
+
+\setcounter{page}{0}
+\input{content/credits.tex}
+
+\plaintitle[
+    logo = images/logo.png,
+    title = Operation P9,
+    subtitle = RPG Kampagne,
+    author = Bernd Haberstumpf
+]
+\cleardoublepage
+
+\customtableofcontent
+\input{content/abstract.tex}
+
+\content
+
+\newpagecolor{pageBackground}
+\pageimage{images/cmyk/jovian_system_cmyk.jpg}
+
+\input{content/introduction.tex}
+\input{content/background.tex}
+\input{content/scenes.tex}
+
+\newpage
+\input{content/nsc.tex}
+\input{content/locations.tex}
+
+\input{content/roleplaying.tex}
+\input{content/sources.tex}
+
+\end{document} 
+\end

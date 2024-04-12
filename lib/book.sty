@@ -1,7 +1,25 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{lib/book}[2023/10/01 Book]
 
-\ProvidesPackage{lib/book}
+%
+% Options
+%
+
+\RequirePackage{xkeyval}            % DeclareOptionX
+
+\newlength{\@printtop}               % Cut away at top of the page
+\DeclareOptionX{printtop}[0mm]{\setlength{\@printtop}{#1}}
+\newlength{\@printbottom}            % Cut away at bottom
+\DeclareOptionX{printbottom}[0mm]{\setlength{\@printbottom}{#1}}
+\newlength{\@printinner}              % Cut away at inner (incl. Kleberand)
+\DeclareOptionX{printinner}[0mm]{\setlength{\@printinner}{#1}}
+\newlength{\@printouter}              % Cut away at outer (incl. Kleberand)
+\DeclareOptionX{printouter}[0mm]{\setlength{\@printouter}{#1}}
+\newlength{\@printextend}             % Dimension how much bigger images should be around the page side
+\DeclareOptionX{printextend}[0mm]{\setlength{\@printextend}{#1}}
+\ProcessOptionsX
 
 \RequirePackage{environ}            % NewEnviron     
 \RequirePackage{keycommand}         % commands with key-value style
@@ -10,14 +28,13 @@
 \RequirePackage{tikz}               % graphics
     \usetikzlibrary{calc}           % needed for boxes
 \RequirePackage[cmyk]{xcolor}       % advanced color selection
-\usepackage{ifthen}                 % ifthenelse
-\usepackage{xifthen}                % isempty etc.
+\RequirePackage{ifthen}             % ifthenelse
+\RequirePackage{xifthen}            % isempty etc.
+\RequirePackage{enumitem}           % for package layout (item formatting) and boxes for nscs
 
 
 %\RequirePackage[hidelinks]{hyperref} % disable hyperrefs
 %\RequirePackage{multicol}          % Only needed for multicolumn layout
-
-\RequirePackage{enumitem}           % for package layout (item formatting) and boxes for nscs
 
 
 %

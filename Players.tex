@@ -2,6 +2,21 @@
 %% License: CC BY-NC
 \documentclass[helvetica,a4paper,10pt,german,openany]{book}
 
+%
+% Adjust page layout for printing
+% 
+
+\newlength{\printtop}
+\setlength{\printtop}{0mm}                    % Cut away at top
+\newlength{\printbottom}
+\setlength{\printbottom}{0mm}                 % Cut away at bottom
+\newlength{\printinner}
+\setlength{\printinner}{0mm}                 % Cut away at inner (incl. Kleberand)
+\newlength{\printouter}
+\setlength{\printouter}{0mm}                  % Cut away at outer (incl. Kleberand)
+\newlength{\printextend}
+\setlength{\printextend}{0mm}                 % Dimension how much bigger images should be around the page side
+
 \input{header.tex}
 
 \begin{document}
@@ -17,7 +32,7 @@
 
 \input{content/abstract.tex}
 
-\tableofcontents
+\customtableofcontent
 
 \content
 
