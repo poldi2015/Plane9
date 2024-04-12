@@ -1,17 +1,20 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
 % !TeX spellcheck = de_DE
+\begin{filecontents*}{\jobname.xmpdata}
+    \Title{Operation P9}
+    \Subject{RPG Kampagne}
+    \Author{Bernd Haberstumpf}
+    \Language{de-DE}
+    \Keywords{Roleplaying\sep SciFi}
+    \Publisher{Bernd Haberstumpf}
+    \Copyright{2019 Bernd Haberstumpf}
+    \Source{Plan9.pdf}
+\end{filecontents*}
 \documentclass[a4paper,10pt,german,openany]{book}
 
 \input{header.tex}
-\usepackage{hyperref}
-\hypersetup{
-    pdfauthor = Bernd Haberstumpf,
-    pdftitle = Operation P9,
-    pdfsubject = RPG Kampagne,
-    pdfkeywords = Rollenspiel\,SciFi,
-    pdfpagelayout = TwoPageLeft,
-}
+\hypersetup{hidelinks}
 
 \begin{document}
 
@@ -55,6 +58,5 @@
 
 \input{content/backcover.tex}
 
-
-\end{document}
+\end{document} 
 \end

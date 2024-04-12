@@ -85,7 +85,12 @@ $max_repeat=3;
 # `set_tex_cmds` applies to all *latex commands (latex, xelatex, lualatex, ...), so
 # no need to specify these each. This allows to simply change `$pdf_mode` to get a
 # different engine. Check if this works with `latexmk --commands`.
-set_tex_cmds("--shell-escape --synctex=1 %O %S");
+set_tex_cmds('--shell-escape --synctex=1 -shell-escape -output-driver="xdvipdfmx \-z 0" %O %S ');
 
 # Additional path to find .sty library
-ensure_path('TEXINPUTS', './content//', './lib//')
+ensure_path('TEXINPUTS', './content//', './lib//');
+
+$excludefromscan={'Plane9.xdv','creationdate.timestamp'};
+
+$hash_calc_ignore_pattern{'xdv'}='.*';
+$hash_calc_ignore_pattern{'timestamp'}='.*';

@@ -15,3 +15,8 @@ resources
 !lib/images/*.png
 *.pdf
 *.png
+*.xmpdata
+_tmp
+creationdate.*
+pdfx.xmpi
+.*.swp

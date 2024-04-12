@@ -23,7 +23,7 @@
     annotations=annotations,
 ]{
     \thispagestyle{empty}
-    \newgeometry{left=5mm,right=5mm,rmargin=1mm}
+    \newgeometry{left=5mm,right=5mm}
     %
     \AddThispageHook{        
         \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\commandkey{image}}};
@@ -51,7 +51,7 @@
     \clearpage
     %
     \thispagestyle{empty}
-    \newgeometry{left=5mm,right=5mm,rmargin=1mm,footskip=5mm,bottom=2mm}
+    \newgeometry{left=5mm,right=5mm,footskip=5mm,bottom=2mm}
     %
     \AddThispageHook{
         \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{#1}};
@@ -125,7 +125,7 @@
 \renewcommand{\cftsubsecpagefont}{\color{tocTitles}}
 
 \newcommand{\customtableofcontent}{
-    \newpagecolor{black}
+    \newpagecolor{trueblack}
     \tableofcontents
     \newpage
     \restorepagecolor
@@ -167,13 +167,26 @@
 % Full page image
 %
 
-\newcommand{\pageimage}[1]{
-    \newgeometry{left=5mm,right=5mm,rmargin=1mm}
+\newcommand{\pageimage}[2][]{
+    \newgeometry{left=5mm,right=5mm}
     \clearpage\newpage
     \thispagestyle{empty}
-    %
-        \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{#1}};
-    %
+    \ifthenelse{\isempty{#1}}{}{\newpagecolor{#1}}%     
+    %        
+    \ifthenelse{\isodd{\thepage}}{%
+        \tikz[remember picture,overlay] %
+                \node[inner sep=0pt,anchor=south west,xshift=\shiftleftodd,yshift=\shiftbottom] 
+                at (current page.south west)
+                {\includegraphics[width=\contentwidth,height=\contentheight]{#2}%
+        };%
+    }{%
+        \tikz[remember picture,overlay] %
+                \node[inner sep=0pt,anchor=south west,xshift=\shiftlefteven,yshift=\shiftbottom]
+                at (current page.south west)
+                {\includegraphics[width=\contentwidth,height=\contentheight]{#2}%
+        };%
+    }%
+    
     \clearpage
     \restoregeometry
 }

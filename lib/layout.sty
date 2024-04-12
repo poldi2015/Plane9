@@ -8,6 +8,65 @@
 \RequirePackage{tabularx}                              % Backcover, Credits
 %\RequirePackage[]{crop}                               % Print borders
 
+
+%
+% Page layout
+%
+
+
+\RequirePackage{geometry}           % page borders
+
+\newlength{\dinwidth}
+\setlength{\dinwidth}{210mm}                  % a4 paper
+\newlength{\dinheight}
+\setlength{\dinheight}{297mm}                 % a4 paper
+
+\newlength{\printtop}
+\setlength{\printtop}{3mm}                    % Cut away at top
+\newlength{\printbottom}
+\setlength{\printbottom}{3mm}                 % Cut away at bottom
+\newlength{\printinner}
+\setlength{\printinner}{10mm}                 % Cut away at inner (incl. Kleberand)
+\newlength{\printouter}
+\setlength{\printouter}{3mm}                  % Cut away at outer (incl. Kleberand)
+\newlength{\printextend}
+\setlength{\printextend}{1mm}                 % Dimension how much bigger images should be around the page side
+
+\newlength{\printwidth}
+\setlength{\printwidth}{\dinwidth+\printinner+\printouter}        % total paper width
+\newlength{\printheight}
+\setlength{\printheight}{\dinheight+\printtop+\printbottom}      % total paper width
+\newlength{\shifttop}
+\setlength{\shifttop}{\printtop-\printextend}                    % vertical offset for full page image (shift downward)
+\newlength{\shiftbottom}
+\setlength{\shiftbottom}{\printbottom-\printextend}              % negative vertical offset for full page image
+\newlength{\shiftleftodd}
+\setlength{\shiftleftodd}{\printinner-\printextend}              % horizontal offset for full page image on odd pages
+\newlength{\shiftlefteven}
+\setlength{\shiftlefteven}{\printouter-\printextend}            % horizontal offset for full page image on even pages
+\newlength{\contentwidth}
+\setlength{\contentwidth}{\dinwidth+\printextend*2}             % full page image width
+\newlength{\contentheight}
+\setlength{\contentheight}{\dinheight+\printextend*2}           % full page image width
+
+\geometry{
+    paperwidth=\printwidth,
+    paperheight=\printheight,
+    layout=a4paper,
+    twoside,
+    includeheadfoot,
+    top=6mm,
+    bottom=10mm,
+    inner=25mm,
+    outer=33mm,
+    headheight=25mm,
+    headsep=15mm,
+    footskip=30mm,
+}
+
+\parskip1.0ex
+\parindent0.0ex
+
 %
 % Document layout
 %
@@ -21,29 +80,8 @@
 \newcommand{\content}{
     %\mainmatter
     \pagestyle{plain}
-    \pagenumbering{arabic}    
+    \pagenumbering{arabic}
 }
-
-
-%
-% Page layout
-%
-
-\parskip1.0ex
-\parindent0.0ex
-
-\geometry{a4paper,
-    twoside,
-    includeheadfoot,
-    top=6mm,
-    bottom=10mm,
-    inner=25mm,
-    outer=33mm,    
-    headheight=25mm,
-    headsep=15mm,
-    footskip=30mm,
-}
-
 
 %
 % Header/Footer
@@ -58,32 +96,44 @@
     \fancyhf{} % clear all headers and footers
     
     \fancyhead[LE]{
+        \newpagecolor{pageBackground}
         \begin{tikzpicture}[remember picture,overlay]
-            \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/images/background-left}};
+            % Scale and place content background to content size, background color is the same color as the background
+            % so that we dont get cut problems
+            \node[inner sep=0pt,anchor=south west,xshift=\printouter,yshift=\printbottom] at (current page.south west) {\includegraphics[width=\dinwidth,height=\dinheight]{lib/images/background-left}};
         \end{tikzpicture}
         \begin{tikzpicture}[remember picture,overlay]
-            \node[inner sep=0pt,anchor=north west] at (current page.north west)
-            {\includegraphics[width=\paperwidth]{lib/images/header-page-left}};
+            % shift header 1mm down so that it is not cut off
+            \node[inner sep=0pt,anchor=north west,xshift=\printouter,yshift=-\printtop-1mm] at (current page.north west)
+            {\includegraphics[width=\dinwidth]{lib/images/header-page-left}};
         \end{tikzpicture}
-        \newgeometry{top=5cm}
+        \newgeometry{top=\printtop+5cm}
     }
 
     \fancyhead[RO]{
+        \newpagecolor{pageBackground}
         \begin{tikzpicture}[remember picture,overlay]
-            \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/images/background-right}};
+            \node[inner sep=0pt,anchor=south west,xshift=\printinner,yshift=\printbottom] at (current page.south west) {\includegraphics[width=\dinwidth,height=\dinheight]{lib/images/background-right}};
         \end{tikzpicture}
         \begin{tikzpicture}[remember picture,overlay]
-            \node[inner sep=0pt,anchor=north west] at (current page.north west)
-            {\includegraphics[width=\paperwidth]{lib/images/header-page-right}};
+            % shift header 1mm down so that it is not cut off
+            \node[inner sep=0pt,anchor=north west,xshift=\printinner,yshift=-\printtop-1mm] at (current page.north west)
+            {\includegraphics[width=\dinwidth]{lib/images/header-page-right}};
         \end{tikzpicture}
-        \newgeometry{top=5cm}
+        \newgeometry{top=\printtop+5cm}
     }
 
     \fancyfoot[LE]{
        \begin{tikzpicture}[remember picture,overlay]
-            \node[xscale=-1,inner sep=0pt,anchor=south,nearly opaque] at (current page.south) {\includegraphics[width=\paperwidth,height=21pt]{lib/images/footer-page-left}};
-            \node[xshift=20pt,yshift=12pt] at (current page.south west) {\@fontPgNumFoot\textcolor{colFoot}{\thepage}};
-            \node[anchor=south west,xshift=\marginparwidth+\marginparpush-30pt,yshift=2pt] at (current page.south west) {\@fontFoot{\textcolor{colFoot}{ %
+            % shift footer 1mm down so that it is not cut off
+            \node[inner sep=0pt,anchor=south west,xshift=\printouter,yshift=\printbottom]             
+            at (current page.south west) {\includegraphics[width=\dinwidth,height=25pt]{lib/images/footer-page-right}};
+            % shift footer number 1mm so that it is not cut off
+            \node[xshift=\printouter+20pt,yshift=\printbottom+11pt+1mm] at (current page.south west) 
+            {\@fontPgNumFoot\textcolor{colFoot}{\thepage}};
+            % shift footer text 1mm so that it is not cut off
+            \node[anchor=south west,xshift=\printouter+\marginparwidth+\marginparpush-30pt,yshift=\printbottom+2pt+1mm] 
+            at (current page.south west) {\@fontFoot{\textcolor{colFoot}{ %
                 // \nouppercase\leftmark%
                 \ifthenelse{\isempty{\@sectionname}}{}{.\@sectionname} %
                 // }}
@@ -93,10 +143,15 @@
 
     \fancyfoot[RO]{
         \begin{tikzpicture}[remember picture,overlay]
-            \node[inner sep=0pt,anchor=south,nearly opaque] at (current page.south)
-            {\includegraphics[width=\paperwidth,height=21pt]{lib/images/footer-page-left}};
-            \node[xshift=-20pt,yshift=12pt] at (current page.south east) {\@fontPgNumFoot\textcolor{colFoot}{\thepage}};
-            \node[anchor=south east,xshift=-\marginparwidth-\marginparpush+30pt,yshift=2pt] at (current page.south east) {\@fontFoot{\textcolor{colFoot}{ %
+            % shift footer 1mm down so that it is not cut off
+            \node[inner sep=0pt,anchor=south west,,xshift=\printinner,yshift=\printbottom] 
+            at (current page.south west) {\includegraphics[width=\dinwidth,height=25pt]{lib/images/footer-page-left}};
+            % shift footer number 1mm so that it is not cut off
+            \node[xshift=-\printouter-20pt,yshift=\printbottom+11pt+1mm] at (current page.south east) 
+            {\@fontPgNumFoot\textcolor{colFoot}{\thepage}};
+            % shift footer text 1mm so that it is not cut off
+            \node[anchor=south east,xshift=-\printouter-\marginparwidth-\marginparpush+30pt,yshift=\printbottom+2pt+1mm] 
+            at (current page.south east) {\@fontFoot{\textcolor{colFoot}{ %
                 // \nouppercase\leftmark%
                 \ifthenelse{\isempty{\@sectionname}}{}{.\@sectionname} %
                 // }}
@@ -109,25 +164,30 @@
     \fancyhf{} % clear all headers and footers
 
     \fancyhead[LE]{
+        \newpagecolor{pageBackground}
         \begin{tikzpicture}[remember picture,overlay]
-            \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/images/background-left}};
+            % Scale and place content background to content size, background color is the same color as the background
+            % so that we dont get cut problems
+            \node[inner sep=0pt,anchor=south west,xshift=\printouter,yshift=\printbottom] at (current page.south west) {\includegraphics[width=\dinwidth,height=\dinheight]{lib/images/background-left}};
         \end{tikzpicture}
         \begin{tikzpicture}[remember picture,overlay]
-            \node[inner sep=0pt,anchor=north west] at (current page.north west)
-            {\includegraphics[width=\paperwidth]{lib/images/header-page-left}};
+            % shift header 1mm down so that it is not cut off
+            \node[inner sep=0pt,anchor=north west,xshift=\printouter,yshift=-\printtop-1mm] at (current page.north west)
+            {\includegraphics[width=\dinwidth]{lib/images/header-page-left}};
         \end{tikzpicture}
-        \newgeometry{top=5cm}
+        \newgeometry{top=\printtop+5cm}
     }
 
     \fancyhead[RO]{
         \begin{tikzpicture}[remember picture,overlay]
-            \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/images/background-right}};
+            \node[inner sep=0pt,anchor=south west,xshift=\printinner,yshift=\printbottom] at (current page.south west) {\includegraphics[width=\dinwidth,height=\dinheight]{lib/images/background-right}};
         \end{tikzpicture}
         \begin{tikzpicture}[remember picture,overlay]
-            \node[inner sep=0pt,anchor=north west] at (current page.north west)
-            {\includegraphics[width=\paperwidth]{lib/images/header-page-right}};
+            % shift header 1mm down so that it is not cut off
+            \node[inner sep=0pt,anchor=north west,xshift=\printinner,yshift=-\printtop-1mm] at (current page.north west)
+            {\includegraphics[width=\dinwidth]{lib/images/header-page-right}};
         \end{tikzpicture}
-        \newgeometry{top=5cm}
+        \newgeometry{top=\printtop+5cm}
     }
 
     \fancyfoot{

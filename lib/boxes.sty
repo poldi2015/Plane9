@@ -152,13 +152,13 @@
 \newcommand*{\bottomimage}[1]{%
     \thispagestyle{headeronly}
     \begin{figure*}[!b]
-        \makebox[\paperwidth+3pt][l]{%
+        \makebox[\contentwidth+3pt][l]{%
             \ifthenelse{\isodd{\thepage}}{%
-                \hspace{-\hoffset-\oddsidemargin-1in-3pt}%
+                \hspace{\shiftleftodd-\hoffset-\oddsidemargin-1in}%
             }{%
-                \hspace{-\hoffset-\evensidemargin-1in-3pt}%
+                \hspace{\shiftlefteven-\hoffset-\evensidemargin-1in}%
             }%
-            \includegraphics[width=\paperwidth+3pt]{#1}
+            \includegraphics[width=\contentwidth]{#1}
         }%
         \vspace*{-\dimexpr\paperheight-\textheight-\headsep-\headheight-\topmargin-\voffset-1in+13pt\relax} % topmargin is a negative value
     \end{figure*}
