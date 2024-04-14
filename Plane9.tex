@@ -38,6 +38,7 @@
 \preamble
 
 % Book cover front page
+\setcounter{page}{0}
 \frontcover[
     image = images/titlepage-bg,
     title = Operation P9,
@@ -60,8 +61,7 @@
 
 \content
 
-\newpagecolor{pageBackground}
-\pageimage{images/cmyk/jovian_system_cmyk.jpg}
+\pageimage[trueblack]{images/cmyk/jovian_system_cmyk.jpg}
 
 \input{content/introduction.tex}
 \input{content/background.tex}
