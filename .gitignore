@@ -14,7 +14,7 @@ resources
 !images/*.png
 !lib/images/*.png
 *.pdf
-*.png
+Plan*.png
 *.xmpdata
 _tmp
 creationdate.*
