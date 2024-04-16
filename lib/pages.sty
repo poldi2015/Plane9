@@ -167,6 +167,9 @@
 % Full page image
 %
 
+%
+% Size is adapted to the full size for best printing overlarging into the print cutting frame
+%
 \newcommand{\pageimage}[2][]{
     \newgeometry{left=5mm,right=5mm}
     \clearpage\newpage
@@ -187,6 +190,34 @@
         };%
     }%
     
+    \clearpage
+    \restoregeometry
+}
+
+%
+% image with an empty page background centered on the page and is adjusted to the given size.
+% Is not enlarged over the cutting frame for printing.
+%
+\newcommand{\centeredimage}[2][]{
+    \newgeometry{left=5mm,right=5mm}
+    \clearpage\newpage
+    \thispagestyle{empty}
+    \ifthenelse{\isempty{#1}}{}{\newpagecolor{#1}}%     
+    %        
+    \ifthenelse{\isodd{\thepage}}{%
+        \tikz[remember picture,overlay] %
+        \node[inner sep=0pt,anchor=south west,xshift=\@printinner,yshift=\@printtop]
+        at (current page.south west)
+        {\includegraphics[width=\@contentwidth,height=\@contentheight]{#2}%
+        };%
+    }{%
+        \tikz[remember picture,overlay] %
+        \node[inner sep=0pt,anchor=south west,xshift=\@printouter,yshift=\@printtop]
+        at (current page.south west)
+        {\includegraphics[width=\@contentwidth,height=\@contentheight]{#2}%
+        };%
+    }%
+
     \clearpage
     \restoregeometry
 }
