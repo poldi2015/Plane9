@@ -1,6 +1,5 @@
 %% Copyright 2019 Bernd Haberstumpf
 %% License: CC BY-NC
-
 \usepackage{geometry}                               % page borders
 \usepackage{calc}                                   % page borders
 
@@ -18,6 +17,7 @@
 \usepackage{multirow}                   % Needed for multi column rows in tables (e.g. credits)
 \usepackage{xfrac}                      % 1/2
 \usepackage{hologo}                     % Needed to print LaTeX Logo
+%\usepackage{printlen}                   % Needed for debugging lengths
 
 %\usepackage[toc,page]{appendix}
 
@@ -35,3 +35,10 @@
 
 % Highlight text
 \newcommand{\hl}[1]{\emph{#1}}
+
+% Shortcut for 1/2 fraction
+\newcommand{\half}{\sfrac{1}{2}}
+
+% NSCs
+\newcommand{\xl}{\pinyin{Xiao3} \pinyin{Long2}}
+\newcommand{\ml}{\pinyin{Mailin2}}
