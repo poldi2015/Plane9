@@ -165,6 +165,37 @@
 }
 
 
+% Full size text frame by the image borders of boxed images
+\newlength{\@boxedtextheight}
+\NewEnviron{boxedtext}{
+    \vspace{5mm}
+    %\setlength{\@boxedtextheight}{\dimexpr\pagegoal-\pagetotal-\pagestretch-20mm\relax}
+    \begin{minipage}[t]{\textwidth}
+    \begin{tcolorbox}[
+        enhanced,
+        before skip=5cm,
+        box align=top,
+        boxrule=3pt,
+        width = \textwidth-10mm,
+        %height = \@boxedtextheight,
+        enlarge left by = 5mm, enlarge right by = 7mm,
+        left=2mm, right=2mm,
+        bottom=5mm, top=5mm,
+        arc=1.8mm, outer arc=1.5mm,
+        unbreakable,
+        colback=imageboxBg,
+        colframe=imageboxframe,
+        overlay app={\node[anchor=north west]  at ($(frame.north west)+(-3mm,3mm)$) {\pgfuseimage{@imageboxframetopleft}};},
+        overlay app={\node[anchor=south east]  at ($(frame.south east)+(+3mm,-3mm)$) {\pgfuseimage{@imageboxframebottomright}};},
+        fuzzy shadow={2pt}{-2pt}{-0.5pt}{0.4mm}{black!60!white},
+        ]
+        \BODY
+        \vfill
+    \end{tcolorbox}    
+\end{minipage}
+\vfill
+}
+
 
 %
 % NSC Character sheet

@@ -35,7 +35,7 @@
         \vspace{5mm}        
         \normalfont\normalsize\includegraphics[width=.5\paperwidth]{lib/images/title-separator}\\*
         \vspace{5mm}
-        \expaniva\fontsize{20pt}{20pt}\fontseries{b}\selectfont
+        \expaniva\fontsize{18pt}{18pt}\fontseries{b}\selectfont
         \fillstroke{[1]}{[0]}{0.5}{\commandkey{subtitle}}\\*
         \vfill
         \expaniva\fontsize{20pt}{20pt}\fontseries{b}\selectfont
@@ -123,6 +123,8 @@
 \renewcommand{\cftchappagefont}{\color{tocTitles}\bfseries}
 \renewcommand{\cftsecpagefont}{\color{tocTitles}}
 \renewcommand{\cftsubsecpagefont}{\color{tocTitles}}
+
+\setcounter{tocdepth}{1}            % Depth of the table of contents: parts, chapters, sections (no subsections)
 
 \newcommand{\customtableofcontent}{
     \newpagecolor{trueblack}
