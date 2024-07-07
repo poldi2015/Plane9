@@ -20,3 +20,6 @@ _tmp
 creationdate.*
 pdfx.xmpi
 .*.swp
+.vscode
+.idea
+*.iml
