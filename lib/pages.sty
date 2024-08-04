@@ -148,20 +148,26 @@
 \newcommand{\newchapter}[2][]{%
     \phantomsection%
     \chapter*{#2}%
-    \ifthenelse{\isempty{#1}}{\addcontentsline{toc}{chapter}{#2}}{\addcontentsline{toc}{chapter}{#1}}%
+    \ifthenelse{\isempty{#1}}%
+    {\addcontentsline{toc}{chapter}{#2}\def\@currentlabelname{#2}}% Adds name to ToC, sets cross references name
+    {\addcontentsline{toc}{chapter}{#1}\def\@currentlabelname{#1}}% Adds name to ToC, sets cross references name
     \renewcommand{\leftmark}{#2}    % Change the chapter name in the footer
 }
 
 \def\@sectionname{} % Define variable for section name for the footer
 \newcommand{\newsection}[2][]{%
     \section*{#2}%
-    \ifthenelse{\isempty{#1}}{\addcontentsline{toc}{section}{#2}}{\addcontentsline{toc}{section}{#1}}%     
-    \def\@sectionname{#2}           % change the section name on the footer
+    \ifthenelse{\isempty{#1}}%
+    {\addcontentsline{toc}{section}{#2}\def\@currentlabelname{#2}}% Adds name to ToC, sets cross references name
+    {\addcontentsline{toc}{section}{#1}\def\@currentlabelname{#1}}% Adds name to ToC, sets cross references name
+    \def\@sectionname{#2}           % change the section name on the footer    
 }
 
 \newcommand{\newsubsection}[2][]{%
     \subsection*{#2}
-    \ifthenelse{\isempty{#1}}{\addcontentsline{toc}{subsection}{#2}}{\addcontentsline{toc}{subsection}{#1}}%     
+    \ifthenelse{\isempty{#1}}%
+    {\addcontentsline{toc}{subsection}{#2}\def\@currentlabelname{#2}}% Adds name to ToC, sets cross references name
+    {\addcontentsline{toc}{subsection}{#1}\def\@currentlabelname{#1}}% Adds name to ToC, sets cross references name
 }
 
 
