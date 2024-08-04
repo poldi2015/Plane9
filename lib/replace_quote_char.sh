@@ -3,15 +3,24 @@
 #
 # Convert 7bit ascii quoted umlauts to utf8 umlauts
 #
-# -r convert to unicode
+# -r or if named to_quote_latex.sh converts back to latex quotes
 #
 
-if [ "$1" = '-r' ]; then
+FILES=$*
+if [ "$(basename $0)" = "to_quote_latex.sh" ]; then
   REVERT=1
-  shift  
+fi
+if [  "$1" = '-r' ]; then
+  REVERT=1
+  shift
+  FILES=$*
+fi
+if [ "${*: -1}" = '-r' ]; then
+  REVERT=1
+  FILES=${*:1:$#-1}
 fi
 
-for i in $*; do
+for i in $FILES; do
   if [ -z "$REVERT" ]; then
     cp "$i" "$i.7bit.bak"
     echo "Converting $i \"a  etc.  to ä..."
