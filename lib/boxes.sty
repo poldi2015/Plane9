@@ -305,6 +305,9 @@
 % two dice
 \newcommand{\tdice}[2]{{\huge\dice[diceBg,diceFg]{#1} \huge\dice[diceBg,diceFg]{#2}}}
 
+% three dice
+\newcommand{\hdice}[3]{{\huge\dice[diceBg,diceFg]{#1} \huge\dice[diceBg,diceFg]{#2} \huge\dice[diceBg,diceFg]{#3}}}
+
 % Dice range
 \newcommand{\rdice}[2]{{\huge\dice[diceBg,diceFg]{#1}}\large{} \raisebox{1mm}{\textsf{bis}} \huge\dice[diceBg,diceFg]{#2}}
 
@@ -321,3 +324,9 @@
         \BODY
     \end{tcolorbox}%
 }
+
+% Names of character capabilities in the character sheet
+\newcommand{\stat}[1]{#1}
+
+% Describes how to change the datasheet
+\newcommand{\sheet}[1]{#1}
