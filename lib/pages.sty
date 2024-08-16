@@ -101,7 +101,8 @@
 \newcommand{\emptypage}{
     \newpage
     \thispagestyle{empty}   % Ensures the new page has no headers or footers
-    \mbox{}                 % Insert an empty box to create the page
+    %\mbox{}                 % Insert an empty box to create the page
+    \null
     \newpage
 }
 
@@ -114,15 +115,19 @@
 \tocloftpagestyle{empty}            % Change page style
 \RequirePackage[toc]{multitoc}      % Multicolumn ToC
 
-\renewcommand{\cftpartfont}{\color{tocTitles}\bfseries\Large}
-\renewcommand{\cftchapfont}{\color{tocTitles}\bfseries}
-\renewcommand{\cftsecfont}{\color{tocTitles}}
-\renewcommand{\cftsubsecfont}{\color{tocTitles}}
+% Title font
+\renewcommand{\cftpartfont}{\color{tocTitles}\@fontTocPart}
+\renewcommand{\cftchapfont}{\color{tocTitles}\@fontTocChapter}
+\renewcommand{\cftsecfont}{\color{tocTitles}\@fontTocSection}
+\renewcommand{\cftsubsecfont}{\color{tocTitles}\@fontTocSubSection}
 
-\renewcommand{\cftpartpagefont}{\color{tocTitles}\bfseries\Large}
-\renewcommand{\cftchappagefont}{\color{tocTitles}\bfseries}
-\renewcommand{\cftsecpagefont}{\color{tocTitles}}
-\renewcommand{\cftsubsecpagefont}{\color{tocTitles}}
+% Page Number form
+\renewcommand{\cftpartpagefont}{\color{tocTitles}\@fontTocPart}
+\renewcommand{\cftchappagefont}{\color{tocTitles}\@fontTocChapter}
+\renewcommand{\cftsecpagefont}{\color{tocTitles}\@fontTocSection}
+\renewcommand{\cftsubsecpagefont}{\color{tocTitles}\@fontTocSubSection}
+
+\setlength{\cftbeforesecskip}{4pt}  % Additional Space between ToC sections
 
 \setcounter{tocdepth}{1}            % Depth of the table of contents: parts, chapters, sections (no subsections)
 
