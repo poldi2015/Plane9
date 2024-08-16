@@ -184,16 +184,25 @@
 }
 
 %
-% Chapter and section layout
+% Part, Chapter and section layout
 % 
+
+% Part
+\titleformat{\part}%block
+{   \ifodd\value{page}\null\newpage\fi%                                          % Layout on even side
+    \thispagestyle{empty}\null\vfill\color{colChapter}\@fontChapter\filcenter}   % Chapter name formatting
+{}                                                                               % Chapter number
+{0cm}                                                                            % Title sparation
+{\Huge}                                                                          % Pre Chapter name
+[{\titleline{\color{colTitleRuler}\titlerule[2pt]}}\vfill]                       % Ruler
 
 % Chapter
 \titleformat{\chapter}%block
-{\vspace{-30pt}\color{colChapter}\@fontChapter}             % Chapter name
-{}                                                          % Chapter number
-{0cm}                                                       % Title sparation
-{\Huge}                                                     % Pre Chapter name
-[{\titleline{\color{colTitleRuler}\titlerule[2pt]}}]        % Ruler
+{\thispagestyle{plain}\vspace{-15pt}\color{colChapter}\@fontChapter}             % Chapter name
+{}                                                                               % Chapter number
+{0cm}                                                                            % Title sparation
+{\Huge}                                                                          % Pre Chapter name
+[{\titleline{\color{colTitleRuler}\titlerule[2pt]}}\vspace{0.8pt}]               % Ruler
 
 
 % Section

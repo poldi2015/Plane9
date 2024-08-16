@@ -142,12 +142,18 @@
 \setcounter{secnumdepth}{1}
 
 % Formatting of the toc title like a chapter
-\renewcommand{\cfttoctitlefont}{\vspace{-30pt}\color{colChapter}\@fontChapter}  % execute directly before the title
+\renewcommand{\cfttoctitlefont}{\vspace{-30pt}\color{tocTitles}\@fontChapter}  % execute directly before the title
 \renewcommand{\cftaftertoctitle}{\\\color{colTitleRuler}\titlerule[2pt]}        % executed directly after the title
 
 % Remove section and chapter numbers from the ToC (numberline is the macro that generates the number in the ToC entry)
 \renewcommand{\numberline}[1]{}
 
+
+\newcommand{\newpart}[2][]{%                Only a wrapper
+    \ifthenelse{\isempty{#1}}%
+    {\part{#2}}%
+    {\part[#1]{#2}}%
+}
 
 % Hide chapter numbers
 \newcommand{\newchapter}[2][]{%
