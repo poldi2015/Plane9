@@ -37,7 +37,9 @@
 
 \preamble
 
-\setcounter{page}{0}
+\setcounter{page}{1}
+
+\ifodd\value{page} \else\hbox{}\newpage\fi      % let the credits on the right side and the plain title on the right    
 \input{content/credits.tex}
 
 \plaintitle[
@@ -46,17 +48,23 @@
     subtitle = RPG Kampagne im C23 Universum,
     author = Bernd Haberstumpf
 ]
-\cleardoublepage
+%\cleardoublepage
 
-\customtableofcontent
 \input{content/abstract.tex}
+
+\ifodd\value{page}\hbox{}\newpage\fi % prevents that ToC starts on the right (odd page)
+\customtableofcontent
 
 \content
 
 \newpagecolor{pageBackground}
+\setcounter{page}{0} % Places the image on the left side (page 0), putting odd pages to the right
 \pageimage{images/jovian_system.jpg}
 
 \input{content/preface.tex}
+\input{content/overview.tex}
+
+\newpart{Teil I - Die Geschichte}
 \input{content/introduction.tex}
 \input{content/background.tex}
 \input{content/scenes.tex}
@@ -66,8 +74,13 @@
 \input{content/nsc.tex}
 \input{content/locations.tex}
 
+\newpart{Teil II - Das Rollenspiel}
 \input{content/roleplaying.tex}
 \input{content/sources.tex}
+
+\input{roleplaying/charactersheet.tex}
+
+\ifodd\value{page} \else\hbox{}\newpage\thispagestyle{empty}\null\newpage\fi % Das Backcover soll auf einer linken Seite auftauchen
 
 \end{document} 
 \end
