@@ -183,6 +183,22 @@
     }
 }
 
+\fancypagestyle{part}{
+    \fancyhf{} % clear all headers and footers
+
+    \fancyhead{
+        \newpagecolor{pageBackground}
+        \begin{tikzpicture}[remember picture,overlay]
+            % Scale and place content background to content size, background color is the same color as the background
+            % so that we dont get cut problems
+            \node[inner sep=0pt,anchor=south west,xshift=\shiftlefteven,yshift=\shiftbottom] at (current page.south west) {\includegraphics[width=\contentwidth,height=\contentheight]{lib/images/parts_background}};
+        \end{tikzpicture}
+        \newgeometry{top=\@printtop+5cm}
+    }
+    \fancyfoot{
+    }
+}
+
 %
 % Part, Chapter and section layout
 % 
@@ -190,7 +206,7 @@
 % Part
 \titleformat{\part}%block
 {   \ifodd\value{page}\null\newpage\fi%                                          % Layout on even side
-    \thispagestyle{empty}\null\vfill\color{colChapter}\@fontChapter\filcenter}   % Chapter name formatting
+    \thispagestyle{part}\null\vfill\color{colChapter}\@fontChapter\filcenter}   % Chapter name formatting
 {}                                                                               % Chapter number
 {0cm}                                                                            % Title sparation
 {\Huge}                                                                          % Pre Chapter name
