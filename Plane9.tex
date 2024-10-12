@@ -45,22 +45,24 @@
     subtitle = RPG Kampagne im C23 Universum,
     annotations = Bernd Haberstumpf
 ]
-\setcounter{page}{0}
 
-\ifodd\value{page} \else\hbox{}\newpage\fi      % let the credits on the right side and the plain title on the right    
-\input{content/credits.tex}
+\begin{oddpage}%
+    \input{content/credits.tex}%
+\end{oddpage}
 
-\plaintitle[
-    logo = images/logo.png,
-    title = Operation P9,
-    subtitle = RPG Kampagne im C23 Universum,
-    author = Bernd Haberstumpf
-]
+\begin{oddpage}%
+    \plaintitle[
+        logo = images/logo.png,
+        title = Operation P9,
+        subtitle = RPG Kampagne im C23 Universum,
+        author = Bernd Haberstumpf
+    ]%
+\end{oddpage}
 
-\input{content/abstract.tex}
+\begin{oddpage}%
+    \input{content/abstract.tex}
+\end{oddpage}
 
-
-\ifodd\value{page}\hbox{}\newpage\fi % prevents that ToC starts on the right (odd page)
 \customtableofcontent
 
 \content

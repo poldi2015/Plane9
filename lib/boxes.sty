@@ -160,7 +160,8 @@
             }%
             \includegraphics[width=\contentwidth]{#1}
         }%
-        \vspace*{-\dimexpr\paperheight-\textheight-\headsep-\headheight-\topmargin-\voffset-1in+13pt\relax} % topmargin is a negative value
+        \vspace*{-\dimexpr\paperheight-\textheight-\headsep-\headheight-\topmargin-\voffset-1in-\shiftbottom\relax}%
+        % topmargin is a negative value
     \end{figure*}
 }
 

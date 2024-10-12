@@ -37,29 +37,30 @@
 
 \preamble
 
-\setcounter{page}{1}
+\setcounter{page}{2}
+\begin{oddpage}%
+    \input{content/credits.tex}%
+\end{oddpage}
 
-\ifodd\value{page} \else\hbox{}\newpage\fi      % let the credits on the right side and the plain title on the right    
-\input{content/credits.tex}
+\begin{oddpage}%
+    \plaintitle[
+        logo = images/logo.png,
+        title = Operation P9,
+        subtitle = RPG Kampagne im C23 Universum,
+        author = Bernd Haberstumpf
+    ]%
+\end{oddpage}
 
-\plaintitle[
-    logo = images/logo.png,
-    title = Operation P9,
-    subtitle = RPG Kampagne im C23 Universum,
-    author = Bernd Haberstumpf
-]
-%\cleardoublepage
+\begin{oddpage}%
+    \input{content/abstract.tex}
+\end{oddpage}
 
-\input{content/abstract.tex}
-
-\ifodd\value{page}\hbox{}\newpage\fi % prevents that ToC starts on the right (odd page)
 \customtableofcontent
 
 \content
 
-\newpagecolor{pageBackground}
 \setcounter{page}{0} % Places the image on the left side (page 0), putting odd pages to the right
-\pageimage{images/jovian_system.jpg}
+\pageimage[trueblack]{images/jovian_system.jpg}
 
 \input{content/preface.tex}
 \input{content/overview.tex}

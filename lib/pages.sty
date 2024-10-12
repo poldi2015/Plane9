@@ -78,18 +78,36 @@
     subtitle=Subtitle,
     author=Author,
 ]{
-    \title{%
-        \vspace*{2.5cm}%
-        \Huge{}\commandkey{title}\\%
-        \smallskip%
-        \large\it{}\commandkey{subtitle}%
-        \vspace{1cm}%
-        \begin{center}\includegraphics[scale=0.4]{\commandkey{logo}}\end{center}%
-    }
-    \author{\commandkey{author}}
-    \date{\today}
-    %
-    \maketitle
+    \vfill{}
+
+    \begin{center}
+        \vspace*{5cm}
+        \Huge{}\commandkey{title}\\
+        \medskip
+        \large\textit{\commandkey{subtitle}}
+        \vspace{1cm}
+        \begin{center}\includegraphics[scale=0.4]{\commandkey{logo}}\end{center}
+        \vspace*{10mm}
+        \commandkey{author}
+
+        \vspace{15pt}
+        2019--2024
+    \end{center}
+
+    \vfill
+    \newpage
+}
+
+\newenvironment{summary}{    
+    \hbox{}\vspace{5cm}
+
+    \begin{center}\textbf{Zusammenfassung}\end{center}
+
+    \medskip
+}{
+
+    \vfill
+    \newpage
 }
 
 
@@ -142,7 +160,7 @@
 \setcounter{secnumdepth}{1}
 
 % Formatting of the toc title like a chapter
-\renewcommand{\cfttoctitlefont}{\vspace{-30pt}\color{tocTitles}\@fontChapter}  % execute directly before the title
+\renewcommand{\cfttoctitlefont}{\vspace{-30pt}\color{tocTitles}\@fontChapter}   % executed directly before the title
 \renewcommand{\cftaftertoctitle}{\\\color{colTitleRuler}\titlerule[2pt]}        % executed directly after the title
 
 % Remove section and chapter numbers from the ToC (numberline is the macro that generates the number in the ToC entry)

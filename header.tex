@@ -43,3 +43,10 @@
 \newcommand{\xl}{\pinyin{Xiao3} \pinyin{Long2}}
 \newcommand{\xls}{\pinyin{Wang2} \pinyin{Xiao3} \pinyin{Long2}}
 \newcommand{\ml}{\pinyin{Mailin2}}
+
+\newenvironment{oddpage}{%
+    \ifodd\value{page}\hbox{}\newpage\fi%
+}{}
+\newenvironment{oddpageprint}{%
+    \ifodd\value{page}\else\hbox{}\newpage\fi%
+}{}
