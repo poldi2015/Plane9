@@ -25,7 +25,8 @@ und einer guten Portion Action.
 
 Hier kannst du das Buch in seiner PDF Version herunterladen:
 
-* [Operation P9](https://github.com/poldi2015/Plane9/releases/latest/download/Plane9.pdf)
+* [Operation P9 - RPG Kampagne im C23 Universum](https://github.com/poldi2015/Plane9/releases/latest/download/Plane9.pdf)
+* * [Character Sheet](https://github.com/poldi2015/Plane9/releases/latest/download/Operation_P9_Character_Sheet.pdf)
 
 ## Print Version
 
