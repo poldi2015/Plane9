@@ -23,3 +23,4 @@ pdfx.xmpi
 .vscode
 .idea
 *.iml
+!Operation_P9_Character_Sheet.pdf
