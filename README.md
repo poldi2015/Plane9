@@ -30,7 +30,7 @@ Hier kannst du das Buch in seiner PDF Version herunterladen:
 
 ## Print Version
 
-In naher Zukunft wird die Geshichte hoffentlich auch als farbiges Hard Cover Buch im Handel verfügbar sein.
+In naher Zukunft soll die Geschichte auch als farbiges Hard Cover Buch im Handel verfügbar sein.
 
 ## Die PDFs bauen
 
