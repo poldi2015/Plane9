@@ -7,18 +7,20 @@ CHAPTERS=$(wildcard [a-z-]*.tex) \
 PYTHON=python3
 PDF2PRINT=lib/pdf2print.py
 
-.PHONY: all print printlegacy clean cmykconvert
+.PHONY: all print letter letter_print printlegacy clean cmykconvert
 
 default: all
 
 all: $(patsubst %,%.pdf,$(DOCS))
 print : $(BOOK)_print.pdf
+letter : $(BOOK)_letter.pdf
+letter_print : $(BOOK)_letter_print.pdf
 printlegacy : $(BOOK)_legacyprint.pdf
 
 %.pdf : %.tex $(CHAPTERS)
 	latexmk -synctex=1 -interaction=nonstopmode -halt-on-error $<
 
-$(BOOK)_legacyprint.pdf $(BOOK)_front.pdf $(BOOK)_front.png &: $(BOOK).pdf
+$(BOOK)_legacyprint.pdf $(BOOK)_front.pdf $(BOOK)_front.png &: $(BOOK)_letter.pdf
 	$(PYTHON) $(PDF2PRINT) $< $(BOOK)_legacyprint.pdf $(BOOK)_front.pdf $(BOOK)_back.pdf \
 		--pdfbackground lib/images/print_background.pdf \
 		--margin_inner 10 --margin_outer 3 --margin_height 3 \

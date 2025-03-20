@@ -13,23 +13,23 @@
     \Source{Plan9.pdf}
 \end{filecontents*}
 
-\documentclass[a4paper,10pt,german,openany]{book}
+\documentclass[letterpaper,10pt,german,openany]{book}
 
 %
 % Adjust page layout for printing
 % 
 
 \newlength{\printtop}
-\setlength{\printtop}{3mm}                    % Cut away at top
+\setlength{\printtop}{0mm}                    % Cut away at top
 \newlength{\printbottom}
-\setlength{\printbottom}{3mm}                 % Cut away at bottom
+\setlength{\printbottom}{0mm}                 % Cut away at bottom
 \newlength{\printinner}
-\setlength{\printinner}{3mm}                 % Cut away at inner (incl. Kleberand)
+\setlength{\printinner}{0mm}                 % Cut away at inner (incl. Kleberand)
 \newlength{\printouter}
-\setlength{\printouter}{3mm}                  % Cut away at outer (incl. Kleberand)
+\setlength{\printouter}{0mm}                  % Cut away at outer (incl. Kleberand)
 \newlength{\printextend}
-\setlength{\printextend}{2mm}                 % Dimension how much bigger images should be around the page side
-\newcommand{\papersize}{a4paper}              % Pageformat used to tweak the content (a4letter or letterpaper)
+\setlength{\printextend}{0mm}                 % Dimension how much bigger images should be around the page side
+\newcommand{\papersize}{letterpaper}          % Pageformat used to tweak the content (a4letter or letterpaper)
 
 \input{header.tex}
 \hypersetup{hidelinks}                        % Adjust Hyperlinks for prinitng
@@ -38,7 +38,15 @@
 
 \preamble
 
-\setcounter{page}{2}
+% Book cover front page
+\setcounter{page}{0}                            % prevent that when removing the title that the rest is placed on the wrong side
+\frontcover[
+    image = images/titlepage-bg,
+    title = Operation P9,
+    subtitle = RPG Kampagne im C23 Universum,
+    annotations = Bernd Haberstumpf
+]
+
 \begin{oddpage}%
     \input{content/credits.tex}%
 \end{oddpage}
@@ -60,7 +68,7 @@
 
 \content
 
-\setcounter{page}{0} % Places the image on the left side (page 0), putting odd pages to the right
+\setcounter{page}{1} % Places the image on the left side (page 0), putting odd pages to the right
 \pageimage[trueblack]{images/jovian_system.jpg}
 
 \input{content/preface.tex}
@@ -83,6 +91,7 @@
 \input{roleplaying/charactersheet.tex}
 
 \ifodd\value{page} \else\hbox{}\newpage\thispagestyle{empty}\null\newpage\fi % Das Backcover soll auf einer linken Seite auftauchen
+\input{content/backcover.tex}
 
 \end{document} 
 \end

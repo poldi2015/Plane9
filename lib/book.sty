@@ -19,6 +19,8 @@
 \DeclareOptionX{printouter}[0mm]{\setlength{\@printouter}{#1}}
 \newlength{\@printextend}             % Dimension how much bigger images should be around the page side
 \DeclareOptionX{printextend}[0mm]{\setlength{\@printextend}{#1}}
+\newcommand{\Xpapersize}{a4letter}    % pagelayout a4paper or letterpaper
+\DeclareOptionX{papersize}[a4paper]{\renewcommand{\Xpapersize}{#1}}
 \ProcessOptionsX
 
 \RequirePackage{environ}            % NewEnviron     

@@ -17,9 +17,14 @@
 \RequirePackage{geometry}           % page borders
 
 \newlength{\@contentwidth}
-\setlength{\@contentwidth}{210mm}                  % a4 paper
 \newlength{\@contentheight}
-\setlength{\@contentheight}{297mm}                 % a4 paper
+\ifthenelse{\equal{\Xpapersize}{a4paper}}{
+    \setlength{\@contentwidth}{210mm}
+    \setlength{\@contentheight}{297mm}
+}{
+    \setlength{\@contentwidth}{8.5in}
+    \setlength{\@contentheight}{11in}
+}
 
 \newlength{\@printwidth}
 \setlength{\@printwidth}{\@contentwidth+\@printinner+\@printouter}        % total paper width
@@ -41,7 +46,7 @@
 \geometry{
     paperwidth=\@printwidth,
     paperheight=\@printheight,
-    layout=a4paper,
+    layout=\Xpapersize,
     twoside,
     includeheadfoot,
     top=6mm,
