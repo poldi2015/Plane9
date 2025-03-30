@@ -18,13 +18,18 @@
 
 \newlength{\@contentwidth}
 \newlength{\@contentheight}
-\ifthenelse{\equal{\Xpapersize}{a4paper}}{
-    \setlength{\@contentwidth}{210mm}
-    \setlength{\@contentheight}{297mm}
-}{
-    \setlength{\@contentwidth}{8.5in}
-    \setlength{\@contentheight}{11in}
-}
+    \ifthenelse{\equal{\Xpapersize}{a4paper}}{
+        \setlength{\@contentwidth}{210mm}
+        \setlength{\@contentheight}{297mm}
+    }{
+        \ifthenelse{\equal{\Xpapersize}{letterpaper}}{
+            \setlength{\@contentwidth}{8.5in}
+            \setlength{\@contentheight}{11in}        
+        }{
+            \setlength{\@contentwidth}{8.25in}
+            \setlength{\@contentheight}{11in}
+        }
+    }
 
 \newlength{\@printwidth}
 \setlength{\@printwidth}{\@contentwidth+\@printinner+\@printouter}        % total paper width
@@ -46,7 +51,7 @@
 \geometry{
     paperwidth=\@printwidth,
     paperheight=\@printheight,
-    layout=\Xpapersize,
+    %layout=\papersize,
     twoside,
     includeheadfoot,
     top=6mm,

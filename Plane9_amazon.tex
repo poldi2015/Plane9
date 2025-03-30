@@ -13,7 +13,7 @@
     \Source{Plane9.pdf}
 \end{filecontents*}
 
-\documentclass[a4paper,10pt,german,openany]{book}
+\documentclass[letterpaper,10pt,german,openany]{book}
 
 %
 % Adjust page layout for printing
@@ -24,12 +24,12 @@
 \newlength{\printbottom}
 \setlength{\printbottom}{0mm}                 % Cut away at bottom
 \newlength{\printinner}
-\setlength{\printinner}{0mm}                 % Cut away at inner (incl. Kleberand)
+\setlength{\printinner}{0mm}                  % Cut away at inner (incl. Kleberand)
 \newlength{\printouter}
 \setlength{\printouter}{0mm}                  % Cut away at outer (incl. Kleberand)
 \newlength{\printextend}
 \setlength{\printextend}{0mm}                 % Dimension how much bigger images should be around the page side
-\newcommand{\papersize}{a4paper}              % Pageformat used to tweak the content (a4letter or letterpaper)
+\newcommand{\papersize}{amazon}               % Pageformat used to tweak the content (a4letter or letterpaper)
 
 \input{header.tex}
 \hypersetup{hidelinks}                        % Adjust Hyperlinks for prinitng
@@ -68,7 +68,7 @@
 
 \content
 
-\setcounter{page}{0} % Places the image on the left side (page 0), putting odd pages to the right
+\setcounter{page}{1} % Places the image on the left side (page 0), putting odd pages to the right
 \pageimage[trueblack]{images/jovian_system.jpg}
 
 \input{content/preface.tex}

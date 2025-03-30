@@ -2,9 +2,12 @@
 %% License: CC BY-NC
 \usepackage{geometry}                               % page borders
 \usepackage{calc}                                   % page borders
+\usepackage{ifthen}                                 % page borders
 
+\newlength{\Xpaperwidth}
+\ifthenelse{\equal{\papersize}{amazon}}{\setlength{\Xpaperwidth}{8.25in}}{\setlength{\Xpaperwidth}{\paperwidth}}
 \geometry{
-    paperwidth=\paperwidth+\printinner+\printouter,
+    paperwidth=\Xpaperwidth+\printinner+\printouter,
     paperheight=\paperheight+\printtop+\printbottom,
 }
 
