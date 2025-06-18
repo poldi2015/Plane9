@@ -15,9 +15,31 @@
 
 % Top image of the remark box
 \pgfdeclareimage[width=\columnwidth-5mm,height=4mm]{@boxtopframe}{./lib/images/box-top.png}
+\pgfdeclareimage[width=\columnwidth-5mm,height=4mm]{@boxtopframeamazon}{./lib/images/box-top_amazon.jpg}
 
 % Remark box
 % %1 text content
+\ifthenelse{\equal{\papersize}{amazon}}{
+\newcommand{\@remarks}[1]{
+        \begin{center}
+            \begin{tcolorbox}[
+            enhanced,        
+            width = \columnwidth-5mm,
+            left=2mm,right=2mm,
+            bottom=4mm, top=3mm,                        
+            arc=2mm, outer arc=0mm,            
+            colframe=remarkboxframe,
+            colback=remarkboxBg,
+            coltext=remarkboxText,
+            interior code app={\node[anchor=center]  at ($(frame.north)+(0mm,1mm)$) {\pgfuseimage{@boxtopframeamazon}};},
+        ]        
+        {\@fontRemark{}\setlength{\parskip}{10pt}%
+        #1%
+        }
+        \end{tcolorbox}
+    \end{center}
+}
+}{
 \newcommand{\@remarks}[1]{
     \begin{center}
         \begin{tcolorbox}[
@@ -44,6 +66,8 @@
         \end{tcolorbox}
     \end{center}
 }
+}
+
 
 \NewEnviron{remarks}{
     \vspace{5mm}\@remarks{\BODY}
@@ -83,9 +107,38 @@
 \newlength{\@imageboxright}     % spacing of image box from the right
 \pgfdeclareimage[width=30.127mm,height=50.268mm]{@imageboxframetopleft}{./lib/images/imagebox-corner-top-left.png}
 \pgfdeclareimage[width=30.127mm,height=50.268mm]{@imageboxframetoprigth}{./lib/images/imagebox-corner-top-right.png}
+\pgfdeclareimage[width=30.127mm,height=50.268mm]{@imageboxframetoprigthamazon}{./lib/images/imagebox-corner-top-right_amazon.png}
 \pgfdeclareimage[width=30.127mm,height=50.268mm]{@imageboxframebottomleft}{./lib/images/imagebox-corner-bottom-left.png}
+\pgfdeclareimage[width=30.127mm,height=50.268mm]{@imageboxframebottomleftamazon}{./lib/images/imagebox-corner-bottom-left_amazon.png}
 \pgfdeclareimage[width=30.127mm,height=50.268mm]{@imageboxframebottomright}{./lib/images/imagebox-corner-bottom-right.png}
 
+\ifthenelse{\equal{\papersize}{amazon}}{
+\newcommand{\@imagebox}[3]{
+    \ifthenelse{\equal{#1}{l}}%
+    {\setlength{\@imageboxleft}{0mm}\setlength{\@imageboxright}{10mm}}%
+    {\setlength{\@imageboxleft}{10mm}\setlength{\@imageboxright}{0mm}}%
+    \vspace{5mm}
+    \begin{tcolorbox}[
+            enhanced,
+            before skip=5cm,
+            box align=top, 
+            boxrule=3pt,
+            width = \textwidth-10mm,
+            enlarge left by = \@imageboxleft, enlarge right by = \@imageboxright,
+            left=0.5mm, right=0.5mm,
+            bottom=0.5mm, top=0.5mm,
+            arc=1.5mm, outer arc=1mm,
+            unbreakable,
+            colback=imageboxBg,
+            colframe=imageboxframe,            
+            finish={\node at ($(frame.south east)+(-14mm,+6.5mm)$) {\textit{#3}};},
+            overlay app={\node[anchor=north east]  at ($(frame.north east)+(3mm,3mm)$) {\pgfuseimage{@imageboxframetoprigthamazon}};},
+            overlay app={\node[anchor=south west]  at ($(frame.south west)+(-3mm,-3mm)$) {\pgfuseimage{@imageboxframebottomleftamazon}};},
+        ]
+        \begin{center}\includegraphics[width=\textwidth]{#2}\end{center}%                
+    \end{tcolorbox}
+}
+}{
 \newcommand{\@imagebox}[3]{
     \ifthenelse{\equal{#1}{l}}%
     {\setlength{\@imageboxleft}{0mm}\setlength{\@imageboxright}{10mm}}%
@@ -112,6 +165,7 @@
         ]
         \begin{center}\includegraphics[width=\textwidth]{#2}\end{center}%                
     \end{tcolorbox}
+}    
 }
 
 % In image beside a text
@@ -168,6 +222,36 @@
 
 % Full size text frame by the image borders of boxed images
 \newlength{\@boxedtextheight}
+\ifthenelse{\equal{\papersize}{amazon}}{
+\NewEnviron{boxedtext}{
+    \vspace{5mm}
+    %\setlength{\@boxedtextheight}{\dimexpr\pagegoal-\pagetotal-\pagestretch-20mm\relax}
+    \begin{minipage}[t]{1.025\textwidth}
+    \begin{tcolorbox}[
+        enhanced,
+        before skip=5cm,
+        box align=top,
+        boxrule=3pt,
+        width = \textwidth-10mm,
+        %height = \@boxedtextheight,
+        enlarge left by = 5mm, enlarge right by = 7mm,
+        left=2mm, right=2mm,
+        bottom=5mm, top=5mm,
+        arc=1.8mm, outer arc=1.5mm,
+        unbreakable,
+        colback=imageboxBg,
+        colframe=imageboxframe,
+        overlay app={\node[anchor=north west]  at ($(frame.north west)+(-3mm,3mm)$) {\pgfuseimage{@imageboxframetopleft}};},
+        overlay app={\node[anchor=south east]  at ($(frame.south east)+(+3mm,-3mm)$) {\pgfuseimage{@imageboxframebottomright}};},
+        %fuzzy shadow={2pt}{-2pt}{-0.5pt}{0.4mm}{black!60!white},
+        ]
+        \BODY
+        \vfill
+    \end{tcolorbox}    
+\end{minipage}
+\vfill
+}
+}{
 \NewEnviron{boxedtext}{
     \vspace{5mm}
     %\setlength{\@boxedtextheight}{\dimexpr\pagegoal-\pagetotal-\pagestretch-20mm\relax}
@@ -195,6 +279,7 @@
     \end{tcolorbox}    
 \end{minipage}
 \vfill
+}    
 }
 
 
@@ -206,6 +291,39 @@
 % #1 h == half text width, f==full text width (default)
 % #2 Charakter name
 % #3 Content
+\ifthenelse{\equal{\papersize}{amazon}}{
+\newcommand{\@nscsheet}[3][f]{   
+    \ifthenelse{\equal{#1}{f}}{%
+        \newcommand{\@nscsheetwidth}{\textwidth-4cm}%
+    }{%
+        \newcommand{\@nscsheetwidth}{\textwidth-2pt}%
+    }
+    \begin{center}
+        \begin{tcolorbox}[
+            enhanced,
+            breakable,
+            before skip=10mm,
+            after skip=5mm,
+            width=\@nscsheetwidth,
+            left=2mm,right=2mm,
+            bottom=1.7mm, top=1mm,
+            arc=3mm, outer arc=3mm,
+            colframe=nscSheetFrame,
+            colback=nscSheetBg,
+            colbacktitle=nscSheetBg,            
+            coltitle=nscSheetTitle,
+            fonttitle=\@fontNscSheetTitle,
+            title=#2,
+            toptitle=1.2mm,
+            bottomtitle=1.2mm,
+            %fuzzy shadow={2pt}{-2pt}{-0.5pt}{0.4mm}{black!60!white},
+            %interior code app={\node[anchor=center]  at ($(frame.north)+(0mm,1mm)$) {\pgfuseimage{@boxtopframe}};},
+            ]
+            {\@fontNscSheet{}#3}
+        \end{tcolorbox}
+    \end{center}
+}
+}{
 \newcommand{\@nscsheet}[3][f]{   
     \ifthenelse{\equal{#1}{f}}{%
         \newcommand{\@nscsheetwidth}{\textwidth-4cm}%
@@ -236,6 +354,7 @@
             {\@fontNscSheet{}#3}
         \end{tcolorbox}
     \end{center}
+}   
 }
 
 \NewEnviron{nscsheet}[2][f]{

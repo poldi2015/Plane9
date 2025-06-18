@@ -125,13 +125,13 @@
     \fancyfoot[LE]{
        \begin{tikzpicture}[remember picture,overlay]
             % shift footer 1mm down so that it is not cut off
-            \node[inner sep=0pt,anchor=south west,xshift=\@printouter,yshift=\@printbottom]             
-            at (current page.south west) {\includegraphics[width=\@contentwidth,height=25pt]{lib/images/footer-page-right}};
+            \node[inner sep=0pt,anchor=south west,xshift=\@printouter,yshift=\@printbottom+1mm]             
+            at (current page.south west) {\includegraphics[width=\@contentwidth]{lib/images/footer-page-left-amazon}};
             % shift footer number 1mm so that it is not cut off
-            \node[xshift=\@printouter+20pt,yshift=\@printbottom+11pt+1mm] at (current page.south west) 
+            \node[xshift=\@printouter+20pt+9mm,yshift=\@printbottom+11pt+6.7mm] at (current page.south west) 
             {\@fontPgNumFoot\textcolor{colFoot}{\thepage}};
             % shift footer text 1mm so that it is not cut off
-            \node[anchor=south west,xshift=\@printouter+\marginparwidth+\marginparpush-30pt,yshift=\@printbottom+2pt+1mm] 
+            \node[anchor=south west,xshift=\@printouter+\marginparwidth+\marginparpush-30pt+12mm,yshift=\@printbottom+2pt+6.7mm] 
             at (current page.south west) {\@fontFoot{\textcolor{colFoot}{ %
                 // \nouppercase\leftmark%
                 \ifthenelse{\isempty{\@sectionname}}{}{.\@sectionname} %
@@ -143,13 +143,13 @@
     \fancyfoot[RO]{
         \begin{tikzpicture}[remember picture,overlay]
             % shift footer 1mm down so that it is not cut off
-            \node[inner sep=0pt,anchor=south west,,xshift=\@printinner,yshift=\@printbottom] 
-            at (current page.south west) {\includegraphics[width=\@contentwidth,height=25pt]{lib/images/footer-page-left}};
+            \node[inner sep=0pt,anchor=south west,,xshift=\@printinner,yshift=\@printbottom+1mm] 
+            at (current page.south west) {\includegraphics[width=\@contentwidth]{lib/images/footer-page-right-amazon}};
             % shift footer number 1mm so that it is not cut off
-            \node[xshift=-\@printouter-20pt,yshift=\@printbottom+11pt+1mm] at (current page.south east) 
-            {\@fontPgNumFoot\textcolor{colFoot}{\thepage}};
+            \node[xshift=-\@printouter-20pt-11mm,yshift=\@printbottom+11pt+6.7mm] at (current page.south east) 
+            {\@fontPgNumFoot\selectfont\textcolor{colFoot}{\thepage}};
             % shift footer text 1mm so that it is not cut off
-            \node[anchor=south east,xshift=-\@printouter-\marginparwidth-\marginparpush+30pt,yshift=\@printbottom+2pt+1mm] 
+            \node[anchor=south east,xshift=-\@printouter-\marginparwidth-\marginparpush+30pt-10mm,yshift=\@printbottom+2pt+6.7mm] 
             at (current page.south east) {\@fontFoot{\textcolor{colFoot}{ %
                 // \nouppercase\leftmark%
                 \ifthenelse{\isempty{\@sectionname}}{}{.\@sectionname} %
