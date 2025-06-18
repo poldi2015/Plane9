@@ -30,7 +30,12 @@ Hier kannst du das Buch in seiner PDF Version herunterladen:
 
 ## Print Version
 
-In naher Zukunft soll die Geschichte auch als farbiges Hard Cover Buch im Handel verfügbar sein.
+Willst du das Werk in einem schönen Druck in den Händen halten, dann ist das 200 seitiges Hardcover Buch auf 
+[www.amazon.de](https://www.amazon.de) das richtige Format. Die Druckversion findet sich hier:
+
+* [Operation P9 Hardcover Druck](https://amzn.eu/d/b32wngQ)
+
+für 43.45€ zum Verkauf bereit.
 
 ## Die PDFs bauen
 
